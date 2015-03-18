@@ -2,10 +2,6 @@
 
 angular.module('mewpipe')
   .controller('MainCtrl', function ($scope) {
-    $scope.bonjour = "Bonjour";
-    $scope.hola = function (){
-      alert("hola");
-    };
 
     $scope.awesomeThings = [
       {
