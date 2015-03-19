@@ -8,10 +8,16 @@ angular.module('mewpipe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'n
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/home/home.html',
-        controller: 'HomeCtrl'
+      .state('skel', {
+        url: '/skel',
+        abstract: true,
+        templateUrl: 'app/skel/skel.html',
+        controller: 'SkelCtrl'
+      })
+      .state('skel.home', {
+      url: '/',
+      templateUrl: 'app/home/home.html',
+      controller: 'HomeCtrl'
       });
 
     $urlRouterProvider.otherwise('/');
