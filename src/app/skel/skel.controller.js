@@ -1,3 +1,6 @@
-/**
- * Created by Victor on 19/03/2015.
- */
+'use strict';
+
+angular.module('mewpipe')
+  .controller('SkelCtrl', function ($scope) {
+
+  });
