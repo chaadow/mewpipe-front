@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('mewpipe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'mm.foundation'])
+angular.module('mewpipe', ['ngAnimate', 'ngCookies', 'ngTouch',
+  'ngSanitize', 'ngResource', 'ui.router', 'mm.foundation', 'angularify.semantic', ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('homeOld', {
@@ -9,8 +10,7 @@ angular.module('mewpipe', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'n
         controller: 'MainCtrl'
       })
       .state('skel', {
-        url: '/skel',
-        abstract: true,
+        url: '',
         templateUrl: 'app/skel/skel.html',
         controller: 'SkelCtrl'
       })

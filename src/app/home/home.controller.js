@@ -3,7 +3,7 @@
 angular.module('mewpipe')
   .controller('HomeCtrl', function ($scope) {
 
-    var BaseMenu = (function(){
+    /*var BaseMenu = (function(){
       var el, trigger, menu, isMenuOpen;
       var _init,
         _initEvents,
@@ -82,5 +82,5 @@ angular.module('mewpipe')
     $(document).ready(function() {
       BaseMenu.gnMenu(document.getElementById('gn-menu'));
     });
-
+*/
   });
