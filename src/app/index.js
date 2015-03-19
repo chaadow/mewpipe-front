@@ -10,11 +10,15 @@ angular.module('mewpipe', ['ngAnimate', 'ngCookies', 'ngTouch',
         controller: 'MainCtrl'
       })
       .state('skel', {
+<<<<<<< HEAD
         url: '',
+=======
+        url: '/skel',
+>>>>>>> 528979956abda0c9a5a7476b5125356dffe2b826
         templateUrl: 'app/skel/skel.html',
         controller: 'SkelCtrl'
       })
-      .state('skel.home', {
+      .state('home', {
       url: '/',
       templateUrl: 'app/home/home.html',
       controller: 'HomeCtrl'
