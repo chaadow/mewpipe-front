@@ -2,6 +2,7 @@
 body {
   background: $bg-primary;
   color: $white;
+  font-font: $font-family-sans-serif;
 }
 
 /** Grid **/
@@ -9,7 +10,7 @@ body {
   max-width: none;
 }
 
-h1 {
+h1,h2,h3,h4,h5,p,span,a {
   font-family: $font-family-sans-serif;
 }
 
