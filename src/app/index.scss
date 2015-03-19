@@ -1,4 +1,3 @@
-@import 'main_settings';
 
 body {
   background: $bg-primary;
@@ -358,4 +357,5 @@ h3 {
 
 }
 // injector
+@import '_main_settings';
 // endinjector
