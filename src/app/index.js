@@ -31,7 +31,7 @@ angular.module('mewpipe', ['ngAnimate',
       templateUrl: 'app/home/home.html',
       controller: 'HomeCtrl'
       })
-      .state('video', {
+      .state('skel.video', {
         url: '/video',
         templateUrl: 'app/video/video.html',
         controller: 'VideoCtrl'
