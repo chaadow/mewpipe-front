@@ -1,0 +1,38 @@
+
+body {
+  background: $bg-primary;
+  color: $white;
+  font-font: $font-family-sans-serif;
+}
+
+/** Grid **/
+.row {
+  max-width: none;
+}
+
+h1,h2,h3,h4,h5,p,span,a {
+  font-family: $font-family-sans-serif;
+}
+
+.large-1.menu-container {
+  width:4.33333%;
+}
+
+/****/
+
+/** Just for test **/
+
+.main-section {
+  min-height: 700px;
+}
+
+/*******/
+
+/** Navigation **/
+
+.menu-icon {
+  background: $white;
+}
+
+
+/****/

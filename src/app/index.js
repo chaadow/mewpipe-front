@@ -11,6 +11,7 @@ angular.module('mewpipe', ['ngAnimate', 'ngCookies', 'ngTouch',
       })
       .state('skel', {
         url: '',
+        abstract: true,
         templateUrl: 'app/skel/skel.html',
         controller: 'SkelCtrl'
       })
