@@ -120,7 +120,9 @@ $font-family-sans-serif: 'Lato',"Helvetica Neue", Helvetica, Roboto, Arial, sans
 $oil            : #333333;
 // $jet         : #222222;
 // $black       : #000000;
-$bg-primary     : #24415E;
+$bg-primary     : #232B44;
+$bg-secondary   : #fafafa;
+$attractColor   : #f57b31;
 
 
 // We use these as default colors throughout
@@ -1158,10 +1160,10 @@ $off-canvas-overlay-background: transparent;
 // $side-nav-list-margin: rem-calc(0 0 7 0);
 
 // We use these to control link styles.
-// $side-nav-link-color: $primary-color;
-// $side-nav-link-color-active: scale-color($side-nav-link-color, $lightness: 30%);
-// $side-nav-link-color-hover: scale-color($side-nav-link-color, $lightness: 30%);
-// $side-nav-link-bg-hover: hsla(0, 0, 0, 0.025);
+$side-nav-link-color: $white;
+$side-nav-link-color-active: $attractColor;
+$side-nav-link-color-hover: scale-color($attractColor, $lightness: 30%);
+$side-nav-link-bg-hover: $bg-secondary;
 // $side-nav-link-margin: 0;
 // $side-nav-link-padding: rem-calc(7 14);
 // $side-nav-font-size: rem-calc(14);
