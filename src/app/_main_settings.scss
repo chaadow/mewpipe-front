@@ -120,9 +120,11 @@ $font-family-sans-serif: 'Lato',"Helvetica Neue", Helvetica, Roboto, Arial, sans
 $oil            : #333333;
 // $jet         : #222222;
 // $black       : #000000;
-$bg-primary     : #232B44;
+$bg-primary     : #111527;
 $bg-secondary   : #fafafa;
 $attractColor   : #f57b31;
+$transp-black   : rgba(35, 43, 68, 0.5);
+$bg-personal    : scale-color($bg-primary, $lightness: 2%);
 
 
 // We use these as default colors throughout

@@ -1,1 +1,30 @@
-teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeest
+
+  <div class="row">
+    <div class="large-6 small-6 columns video-item" ng-repeat="latestUploadVideo in latestUploadVideos">
+      <div class="th">
+        <a ng-href="{{latestUploadVideo.url}}">
+          <img class="right" ng-src="assets/images/{{latestUploadVideo.thumbnail}}" alt="{{latestUploadVideo.title}}">
+        </a>
+        <div class="caption">
+          <h3>{{latestUploadVideo.title}}</h3>
+          <p>{{latestUploadVideo.creator}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-3 small-3 columns video-item" ng-repeat="latestUploadVideo in latestUploadVideos">
+    <div class="th">
+      <a ng-href="{{latestUploadVideo.url}}">
+        <img class="right" ng-src="assets/images/{{latestUploadVideo.thumbnail}}" alt="{{latestUploadVideo.title}}">
+      </a>
+      <div class="caption">
+        <h3>{{latestUploadVideo.title}}</h3>
+        <p>{{latestUploadVideo.creator}}</p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
