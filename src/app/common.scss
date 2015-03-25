@@ -14,9 +14,9 @@ h1,h2,h3,h4,h5,p,span,a {
   font-family: $font-family-sans-serif;
 }
 
-.large-1.menu-container {
-  width:4.33333%;
-}
+
+
+
 
 /****/
 
@@ -29,10 +29,96 @@ h1,h2,h3,h4,h5,p,span,a {
 /*******/
 
 /** Navigation **/
+.nav-container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 
-.menu-icon {
-  background: $white;
+.side-nav {
+  text-align: center;
+  padding: 0px;
+  a {
+    font-size: 1.7rem;
+  }
+  li {
+    line-height: 8rem;
+  }
 }
 
 
 /****/
+
+/** Main container **/
+.main-container {
+  background: $bg-secondary;
+  color: $oil;
+}
+
+/****/
+
+/**** Top stats **/
+
+.top-stats {
+  background: $bg-primary;
+}
+
+/*****/
+
+/**** Personal **/
+.personal {
+  background: $bg-personal;
+}
+/*****/
+
+/*** Videos **/
+
+.video-item {
+  .th {
+    position: relative;
+  }
+
+  .caption {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background: rgba(14, 15, 16, 0.5)
+  }
+}
+
+
+/*******/
+
+
+/** Media query **/
+
+/*desktop*/
+@media only screen and (min-width: 64.063em) {
+
+  .nav-container {
+    width: 4%;
+  }
+
+
+  .main-container {
+    width: 65%;
+  }
+
+  .top-stats{
+    width: 14.3%
+  }
+
+  .main-section {
+    width: 80%;
+  }
+}
+
+/* small tab & mobile */
+
+@media only screen and (max-width: 64.063em) {
+
+  .side-nav li {
+    line-height: 4em;
+    display: inline-block;
+    width: 20%;
+  }
+}
