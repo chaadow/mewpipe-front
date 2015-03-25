@@ -36,6 +36,15 @@ angular.module('mewpipe', ['ngAnimate',
         templateUrl: 'app/video/video.html',
         controller: 'VideoCtrl'
       })
+      .state('skel.login', {
+        views: {
+          'third-container':{
+            url: '',
+            templateUrl: 'app/login/login.html',
+            controller: 'LoginCtrl'
+          }
+        }
+      })
     ;
 
     $urlRouterProvider.otherwise('/');
