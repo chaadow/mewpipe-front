@@ -29,7 +29,7 @@ angular.module('mewpipe', ['ngAnimate',
       .state('skel.home', {
       url: '/',
       templateUrl: 'app/home/home.html',
-      controller: 'HomeCtrl',
+      controller: 'HomeCtrl'/*,
         views: {
           "connected": {
             templateUrl: 'app/user-sidebar/user-sidebar.html',
@@ -39,13 +39,13 @@ angular.module('mewpipe', ['ngAnimate',
             templateUrl: 'app/signup/signup.html',
             controller: 'SignupCtrl'
           }
-        }
+        }*/
       })
       .state('skel.video', {
         url: '/video',
         templateUrl: 'app/video/video.html',
         controller: 'VideoCtrl'/*,
-        /*views: {
+        views: {
           "connected": {
             templateUrl: 'app/user-sidebar/user-sidebar.html',
             controller: 'UserSidebarCtrl'

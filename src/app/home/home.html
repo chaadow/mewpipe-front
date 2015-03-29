@@ -2,7 +2,7 @@
   <div class="row">
     <div class="large-6 small-6 columns video-item" ng-repeat="latestUploadVideo in latestUploadVideos">
       <div class="th">
-        <a ng-href="{{latestUploadVideo.url}}">
+        <a ui-sref="{{latestUploadVideo.url}}">
           <img class="right" ng-src="assets/images/{{latestUploadVideo.thumbnail}}" alt="{{latestUploadVideo.title}}">
         </a>
         <div class="caption">
@@ -15,7 +15,7 @@
   <div class="row">
     <div class="large-3 small-3 columns video-item" ng-repeat="latestUploadVideo in latestUploadVideos">
     <div class="th">
-      <a ng-href="{{latestUploadVideo.url}}">
+      <a ui-sref="{{latestUploadVideo.url}}">
         <img class="right" ng-src="assets/images/{{latestUploadVideo.thumbnail}}" alt="{{latestUploadVideo.title}}">
       </a>
       <div class="caption">

@@ -122,3 +122,24 @@ h1,h2,h3,h4,h5,p,span,a {
     width: 20%;
   }
 }
+
+/*** Buttons **/
+.btn-attract{
+  background-color: $attractColor;
+  padding: 4px 50px 4px 50px;
+
+  &:hover{
+    background-color: $attractColor;
+  }
+}
+/*****/
+
+/*** Text **/
+.text-attract{
+  color: $attractColor;
+}
+
+.text-iron{
+  color: $iron;
+}
+/*****/
