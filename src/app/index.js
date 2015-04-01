@@ -15,61 +15,39 @@ angular.module('mewpipe', ['ngAnimate',
   )
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
+      .state('skel', {
+        url: '',
+        abstract: true,
+        views : {
+          '':{
+            templateUrl: 'app/skel/skel.html',
+            controller: 'SkelCtrl'
+          },
+          'connected@skel': {
+            templateUrl: 'app/user-sidebar/user-sidebar.html',
+            controller: 'UserSidebarCtrl'
+          },
+          'notConnected@skel':{
+            templateUrl: 'app/signup/signup.html',
+            controller: 'SignupCtrl'
+          }
+        }
+      })
+      .state('skel.home', {
+        url: '/',
+        templateUrl: 'app/home/home.html',
+        controller: 'HomeCtrl'
+      })
+      .state('skel.video', {
+        url: '/video',
+        templateUrl: 'app/video/video.html',
+        controller: 'VideoCtrl'
+      })
       .state('homeOld', {
         url: '/homeold',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
-      .state('skel', {
-        url: '',
-        abstract: true,
-        templateUrl: 'app/skel/skel.html',
-        controller: 'SkelCtrl'
-      })
-      .state('skel.home', {
-      url: '/',
-      templateUrl: 'app/home/home.html',
-      controller: 'HomeCtrl',
-        views: {
-          "connected": {
-            templateUrl: 'app/user-sidebar/user-sidebar.html',
-            controller: 'UserSidebarCtrl'
-          },
-          "notConnected":{
-            templateUrl: 'app/signup/signup.html',
-            controller: 'SignupCtrl'
-          }
-        }
-      })
-      .state('skel.video', {
-        url: '/video',
-        templateUrl: 'app/video/video.html',
-        controller: 'VideoCtrl'/*,
-        views: {
-          "connected": {
-            templateUrl: 'app/user-sidebar/user-sidebar.html',
-            controller: 'UserSidebarCtrl'
-          },
-          "notConnected":{
-            templateUrl: 'app/signup/signup.html',
-            controller: 'SignupCtrl'
-          }
-        }*/
-      })
-      /*.state('skel.login', {
-        views: {
-          'third-container':{
-            url: '',
-            templateUrl: 'app/login/login.html',
-            controller: 'LoginCtrl'
-          }
-        }
-      })
-      .state('skel.signup', {
-        url: '/signup',
-        templateUrl: 'app/signup/signup.html',
-        controller: 'SignupCtrl'
-      })*/
     ;
 
     $urlRouterProvider.otherwise('/');
