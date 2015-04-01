@@ -125,6 +125,7 @@ $bg-secondary   : #fafafa;
 $attractColor   : #f57b31;
 $transp-black   : rgba(35, 43, 68, 0.5);
 $bg-personal    : scale-color($bg-primary, $lightness: 2%);
+$lightGrey      : #A3A2A2;
 
 
 // We use these as default colors throughout
@@ -1057,20 +1058,20 @@ $off-canvas-overlay-background: transparent;
 // $include-html-media-classes: $include-html-classes;
 
 // We use this to set the progress bar height
-// $progress-bar-height: rem-calc(25);
-// $progress-bar-color: $vapor;
+$progress-bar-height: rem-calc(10);
+$progress-bar-color: transparent;
 
 // We use these to control the border styles
-// $progress-bar-border-color: scale-color($white, $lightness: 20%);
-// $progress-bar-border-size: 1px;
-// $progress-bar-border-style: solid;
-// $progress-bar-border-radius: $global-radius;
+$progress-bar-border-color: scale-color($white, $lightness: 20%);
+$progress-bar-border-size: 0px;
+$progress-bar-border-style: solid;
+//$progress-bar-border-radius: $global-radius;
 
 // We use these to control the margin & padding
-// $progress-bar-margin-bottom: rem-calc(10);
+$progress-bar-margin-bottom: rem-calc(0);
 
 // We use these to set the meter colors
-// $progress-meter-color: $primary-color;
+$progress-meter-color: $attractColor;
 // $progress-meter-secondary-color: $secondary-color;
 // $progress-meter-success-color: $success-color;
 // $progress-meter-alert-color: $alert-color;

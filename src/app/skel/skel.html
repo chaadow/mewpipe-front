@@ -12,7 +12,42 @@
   </div>
 
   <div class="large-2 columns full-height top-stats">
-    top stats
+    <h2>Most viewed</h2>
+    <div class="row most-viewed">
+      <div class="large-12 small-12  video-item" ng-repeat="mostViewed in mostVieweds">
+        <div class="th">
+          <a ui-sref="{{mostViewed.url}}">
+            <img class="" ng-src="assets/images/videothumb/{{mostViewed.thumbnail}}" alt="{{mostViewed.title}}">
+          </a>
+          <div class="caption">
+            <div class="progress large-12 small-12">
+              <span class="meter" style="width:{{mostViewed.pourcent}}%"></span>
+            </div>
+            <span class="number">{{mostViewed.numbviews}}</span>
+            <p>{{mostViewed.creator}}</p>
+            <h3>{{mostViewed.title}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row top-rated">
+      <h2>Top Rated</h2>
+      <div class="large-12 small-12  video-item" ng-repeat="topRated in topRateds">
+        <div class="th">
+          <a ui-sref="{{topRated.url}}">
+            <img class="" ng-src="assets/images/videothumb/{{topRated.thumbnail}}" alt="{{topRated.title}}">
+          </a>
+          <div class="caption">
+            <div class="progress large-12 small-12">
+              <span class="meter" style="width:{{topRated.pourcent}}%"></span>
+            </div>
+            <span class="number">{{topRated.rate}}</span>
+            <p>{{topRated.creator}}</p>
+            <h3>{{topRated.title}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="large-2 columns full-height personal">
