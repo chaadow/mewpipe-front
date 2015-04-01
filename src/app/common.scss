@@ -127,12 +127,26 @@ h1,h2,h3,h4,h5,p,span,a {
 }
 
 /*** Buttons **/
+
+.button{
+  padding: 6px;
+  width: 100%;
+}
 .btn-attract{
   background-color: $attractColor;
-  padding: 4px 50px 4px 50px;
 
   &:hover{
     background-color: $attractColor;
+  }
+}
+
+.btn-secondary{
+  background-color: $bg-secondary;
+  color: $attractColor;
+
+  &:hover{
+    background-color: $bg-secondary;
+    color: $attractColor;
   }
 }
 /*****/
