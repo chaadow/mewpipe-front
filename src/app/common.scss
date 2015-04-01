@@ -73,6 +73,9 @@ h1,h2,h3,h4,h5,p,span,a {
 /*** Videos **/
 
 .video-item {
+    float: left;
+    padding-right: 1em;
+
   .th {
     position: relative;
   }
