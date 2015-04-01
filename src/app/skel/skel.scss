@@ -17,6 +17,7 @@
         position: inherit;
         background: $bg-secondary;
         padding-bottom: 0.5em;
+        text-align: left;
 
         .number {
           background: $attractColor;
@@ -34,12 +35,16 @@
           line-height: 1.3em;
           margin-left: 0.5em;
           font-size: rem-calc(18);
+          opacity: 1;
+          transition: none;
+
         }
 
         h3 {
           padding: 0 0.5em;
           margin-bottom: 0px;
           font-size: rem-calc(20);
+          color: $bg-primary;
         }
       }
 
