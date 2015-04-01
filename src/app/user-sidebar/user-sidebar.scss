@@ -1,0 +1,27 @@
+#user-sidebar{
+  margin-top: 0.5em;
+  .profile-picture-wrap{
+    width: 115px;
+    height: 115px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 2px solid $attractColor;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+  }
+
+  ul{
+    list-style: none;
+
+    li{
+      float: right;
+    }
+  }
+
+  i{
+    font-size: 15px;
+  }
+}
+
+
