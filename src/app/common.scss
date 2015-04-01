@@ -198,11 +198,6 @@ h1,h2,h3,h4,h5,p,span,a {
 
   &:hover{
     background-color: $attractColor;
-    padding: 4px 50px 4px 50px;
-
-    &:hover{
-      background-color: $attractColor;
-    }
   }
 }
 
@@ -217,11 +212,21 @@ h1,h2,h3,h4,h5,p,span,a {
 }
 /*****/
 
-  /*** Text **/
-  .text-attract{
-    color: $attractColor;
-  }
+/*** Text **/
+.text-attract{
+  color: $attractColor;
+}
 
-  .text-iron{
-    color: $iron;
-  }
+.text-iron{
+  color: $iron;
+}
+/*******/
+
+
+/*** Form ****/
+.input-default{
+  background-color: $bg-primary !important;
+  border: none !important;
+  color: white !important;
+}
+/************/
