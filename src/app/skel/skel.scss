@@ -1,7 +1,68 @@
-.personal{
-  .row{
+.personal {
+  .row {
     margin-left: 0px !important;
     margin-right: 0px !important;
   }
 
 }
+
+.top-stats {
+  .video-item {
+    padding-right: 0px;
+    margin-bottom: 0.5em;
+
+    .th {
+      border: none;
+
+      .progress {
+        padding: 0px;
+        margin-bottom: 0.5em;
+      }
+
+      .caption {
+        position: inherit;
+        background: $bg-secondary;
+        padding-bottom: 0.5em;
+
+        .number {
+          background: $attractColor;
+          display: block;
+          padding: 2px 5px;
+          float: left;
+          line-height: 1em;
+          margin-left: 0.5em;
+        }
+
+        p {
+          display: inline-block;
+          color: $lightGrey;
+          margin: 0px;
+          line-height: 1.3em;
+          margin-left: 0.5em;
+          font-size: rem-calc(18);
+        }
+
+        h3 {
+          padding: 0 0.5em;
+          margin-bottom: 0px;
+          font-size: rem-calc(20);
+        }
+      }
+
+    }
+  }
+
+  .most-viewed, .top-rated {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
+
+  h2 {
+    color: $attractColor;
+    font-weight: 200;
+    text-transform: uppercase;
+    font-size: rem-calc(25);
+    text-align: center;
+    margin-top: 0.5em;
+  }
+
