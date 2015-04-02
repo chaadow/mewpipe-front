@@ -1,14 +1,39 @@
-#user-sidebar{
+.user-sidebar{
   margin-top: 0.5em;
-  .profile-picture-wrap{
-    width: 115px;
-    height: 115px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    border: 2px solid $attractColor;
-    border-radius: 150px;
-    -webkit-border-radius: 150px;
-    -moz-border-radius: 150px;
+
+  .profile-img {
+    display: inline-block;
+    margin: 0 20%;
+    padding: 0.4em;
+    border-radius: 50%;
+    background-color: $attractColor;
+    box-shadow: 0px 1px 1px rgba(255,255,255,0.2), 0 0 8px $attractColor inset;
+
+    /* Image container */
+    span {
+      display: inline-block;
+      overflow: hidden;
+      border-radius: 50%;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.6);
+      vertical-align: middle;
+    }
+  }
+
+  .username {
+    margin-top: 0.5em;
+    display: block;
+    font-size: 22px;
+    margin-bottom: 0.5em;
+  }
+
+  .userstats {
+    color: $lightGrey;
+    font-size: rem-calc(18);
+    margin-bottom: 2em;
+
+    i {
+      font-size: rem-calc(20);
+    }
   }
 
   ul{
@@ -21,6 +46,27 @@
 
   i{
     font-size: 15px;
+  }
+
+  .addvideo.activ {
+    background: transparent;
+    border-bottom: 3px solid orange;
+  }
+
+  #fastUpload {
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: all 0.1s ease-out;
+    -moz-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+
+    &.open {
+      position: inherit;
+      opacity: 1;
+      -webkit-transition: all 0.5s ease-in;
+      -moz-transition: all 0.5s ease-in;
+      transition: all 0.5s ease-in;
+    }
   }
 }
 

@@ -96,6 +96,8 @@ h1,h2,h3,h4,h5,p,span,a {
 
     h3 {
       color: $bg-secondary;
+      font-weight: 100;
+      font-size: rem-calc(24);
     }
 
     p,.GoToPlay {
@@ -142,6 +144,17 @@ h1,h2,h3,h4,h5,p,span,a {
       transition: all 1s ease-out;
     }
   }
+}
+
+.large-3 {
+    .caption {
+      h3 {
+        font-size: rem-calc(18);
+      }
+      .GoToPlay {
+        font-size: 1rem;
+      }
+    }
 }
 
 .large-6 {

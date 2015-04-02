@@ -9,6 +9,10 @@ angular.module('mewpipe')
         var heightwindow = $(document).height();
         $('.full-height').css('min-height', heightwindow+'px');
       });
+      $( window ).load( function(){
+        var mainContainerHeight = $( ".full-height-stalker").height();
+        $('.full-height').css('min-height', mainContainerHeight+'px');
+      });
 
       $(window).resize(function() {
         var heightwindow = $(document).height();
@@ -21,7 +25,7 @@ angular.module('mewpipe')
         'title': 'Titre de la video',
         'url': 'skel.video',
         'creator': "User's name",
-        'thumbnail': 'default.jpg',
+        'thumbnail': 'default3.jpg',
         'numbviews': 124,
         'pourcent': 100
       },
@@ -29,7 +33,7 @@ angular.module('mewpipe')
         'title': 'Titre de la video',
         'url': 'skel.video',
         'creator': "User's name",
-        'thumbnail': 'default.jpg',
+        'thumbnail': 'default2.jpg',
         'numbviews': 95,
         'pourcent': 77
       },
@@ -37,7 +41,7 @@ angular.module('mewpipe')
         'title': 'Titre de la video',
         'url': 'skel.videoo',
         'creator': "User's name",
-        'thumbnail': 'default.jpg',
+        'thumbnail': 'default4.jpg',
         'numbviews': 60,
         'pourcent': 48
       }
@@ -48,7 +52,7 @@ angular.module('mewpipe')
         'title': 'Titre de la video',
         'url': 'skel.video',
         'creator': "User's name",
-        'thumbnail': 'default.jpg',
+        'thumbnail': 'default1.jpg',
         'rate': 124,
         'pourcent': 100
       },
@@ -56,7 +60,7 @@ angular.module('mewpipe')
         'title': 'Titre de la video',
         'url': 'skel.video',
         'creator': "User's name",
-        'thumbnail': 'default.jpg',
+        'thumbnail': 'default3.jpg',
         'rate': 124,
         'pourcent': 80
       },
@@ -64,7 +68,7 @@ angular.module('mewpipe')
         'title': 'Titre de la video',
         'url': 'skel.videoo',
         'creator': "User's name",
-        'thumbnail': 'default.jpg',
+        'thumbnail': 'default4.jpg',
         'rate': 124,
         'pourcent': 67
       }
