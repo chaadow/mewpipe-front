@@ -1,7 +1,22 @@
 'use strict';
 
 angular.module('mewpipe')
-  .controller('HomeCtrl', function ($scope) {
+  .controller('HomeCtrl', ['$scope', 'LocalService', function ($scope, LocalService) {
+    var user = {
+      email: 'hair.thon@gmail.com',
+      username: 'Ayrton',
+      admin: true,
+      id: '1'
+    };
+
+
+    LocalService.set('user_id', user.id);
+    LocalService.set('user_email', user.email);
+    LocalService.set('user_username', user.username);
+    LocalService.set('user_admin', true);
+
+
+
 
     $scope.latestUploadVideos = [
       {
@@ -30,4 +45,4 @@ angular.module('mewpipe')
       }
     ];
 
-  });
+  }]);

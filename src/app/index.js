@@ -1,16 +1,20 @@
 'use strict';
 
 angular.module('mewpipe', ['ngAnimate',
-  'ngCookies',
-  'ngTouch',
-  'ngSanitize',
-  'ngResource',
-  'ui.router',
-  'mm.foundation',
-  "com.2fdevs.videogular",
-  "com.2fdevs.videogular.plugins.controls",
-  "com.2fdevs.videogular.plugins.overlayplay",
-  "com.2fdevs.videogular.plugins.poster"
+    'ngCookies',
+    'ngTouch',
+    'ngSanitize',
+    'ngResource',
+    'ui.router',
+    'mm.foundation',
+    "com.2fdevs.videogular",
+    "com.2fdevs.videogular.plugins.controls",
+    "com.2fdevs.videogular.plugins.overlayplay",
+    "com.2fdevs.videogular.plugins.poster",
+    "common.services.localstorage",
+    "common.services.fileservice",
+    "common.directives.ngfileselect",
+    "common.services.filereader"
     ]
   )
   .config(function ($stateProvider, $urlRouterProvider) {

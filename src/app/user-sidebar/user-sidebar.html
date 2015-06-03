@@ -19,23 +19,38 @@
   </div>
   <div class="row">
       <div class="small-12 columns">
-        <a class="button btn-attract radius addvideo">Add a video</a>
-        <form name="fast-upload" id="fastUpload">
+        <a class="button btn-attract radius addvideo" ng-click="toggleUploadForm()" ng-class="{activ: showFastUploadForm}">Add a video</a>
+
+        <form ng-show="showFastUploadForm" novalidate="" ng-submit="uploadVideo()" name="fastUpload" id="fastUpload" ng-class="{open: showFastUploadForm}">
           <div class="row">
             <div class="small-12 columns">
-              <input type="text" placeholder="email*">
+              <input type="file"
+                     ng-file-select
+                     ng-model="file"
+                     accept="video/*"
+                     ng-required="true"
+                     placeholder="Vidéo*">
+
             </div>
           </div>
           <div class="row">
             <div class="small-12 columns">
-              <input type="text" placeholder="password*">
+              <input type="text" placeholder="Title*" name="title" ng-model="title" ng-required="true" >
             </div>
           </div>
           <div class="row">
             <div class="small-12 columns">
-              <input type="text" placeholder="repeat password*">
+              <select ng-model="confidentiality" ng-required="true">
+                <option value="Public" selected="selected">Public</option>
+                <option value="PrivateLink">PrivateLink</option>
+                <option value="Private">Private</option>
+              </select>
             </div>
           </div>
+
+          <button type="submit" ng-disabled="fastUpload.$invalid" >
+            Submit
+          </button>
         </form>
       </div>
       <div class="small-12 columns">
