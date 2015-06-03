@@ -47,11 +47,17 @@ angular.module('mewpipe', ['ngAnimate',
         templateUrl: 'app/video/video.html',
         controller: 'VideoCtrl'
       })
+      .state('skel.upload', {
+        url: '/upload',
+        templateUrl: 'app/upload/upload.html',
+        controller: 'UploadCtrl'
+      })
       .state('homeOld', {
         url: '/homeold',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
+
     ;
 
     $urlRouterProvider.otherwise('/');
