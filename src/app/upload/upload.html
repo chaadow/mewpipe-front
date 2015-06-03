@@ -1,0 +1,62 @@
+<div class="row" ng-controller="UploadCtrl as controller">
+  <div class="small-12 columns">
+    <h1>Upload a new video</h1>
+    <p>Fill the form to upload a new video</p>
+    <form method="post" action="#" enctype="multipart/form-data">
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="row">
+            <div class="small-2 columns">
+              <label for="right-label" class="right inline">Your video</label>
+            </div>
+            <div class="small-10 columns">
+              <input type="file" name="videouploaded" />
+              <input type="hidden" name="MAX_FILE_SIZE" value="65536000" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="row">
+            <div class="small-2 columns">
+              <label for="right-label" class="right inline">Title</label>
+            </div>
+            <div class="small-10 columns">
+              <input type="text" id="right-label" placeholder="Shorter is better !">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="row">
+            <div class="small-2 columns">
+              <label for="right-label" class="right inline">Description</label>
+            </div>
+            <div class="small-10 columns">
+              <textarea name="vid_description" rows="5" placeholder="Describe your video"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="row">
+            <div class="small-2 columns">
+              <label for="right-label" class="right inline">Tags</label>
+            </div>
+            <div class="small-10 columns">
+              <input type="text" name="vid_tags" placeholder="sport,music,travel">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
+          <input type="submit" value="Upload!" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

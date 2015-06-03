@@ -74,3 +74,30 @@
     margin-top: 0.5em;
   }
 }
+
+/** Personal colonne **/
+
+.personal {
+  color: white;
+  text-aligne: center;
+
+  h2 {
+    color: white;
+    text-align: center ;
+  }
+}
+
+
+
+
+@media only screen and (min-width: 64.063em) {
+  .side-nav{
+    position: fixed;
+    width: inherit;
+  }
+
+  .glue {
+    position: fixed;
+    padding-right: 0.9357rem;
+  }
+}

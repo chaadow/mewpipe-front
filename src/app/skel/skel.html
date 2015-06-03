@@ -52,13 +52,16 @@
   </div>
 
   <div class="large-2 columns full-height personal">
-    <div ng-show="1" >
-      <div ui-view="connected"></div>
-    </div>
+    <div class="glue">
+      <div ng-show="0" >
+        <div ui-view="connected"></div>
+      </div>
 
-    <div ng-show="0">
-      <div ui-view="notConnected"></div>
+      <div ng-show="1">
+        <div ui-view="notConnected"></div>
+      </div>
     </div>
   </div>
+
 
 </div>
