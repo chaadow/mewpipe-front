@@ -3,7 +3,7 @@
   <div class="large-1 columns full-height nav-container">
     <ul class="side-nav" >
       <li><a ui-sref="skel.home"><i class="fi-home"></i></a></li>
-      <li><a href="#"><i class="fi-plus"></i></a></li>
+      <li><a ui-sref="skel.upload"><i class="fi-plus"></i></a></li>
       <li><a href="#"><i class="fi-magnifying-glass"></i></a></li>
       <li><a href="#"><i class="fi-video"></i></a></li>
     </ul>
@@ -53,11 +53,11 @@
 
   <div class="large-2 columns full-height personal">
     <div class="glue">
-      <div ng-show="0" >
+      <div ng-show="isLogged" >
         <div ui-view="connected"></div>
       </div>
 
-      <div ng-show="1">
+      <div ng-show="!isLogged">
         <div ui-view="notConnected"></div>
       </div>
     </div>

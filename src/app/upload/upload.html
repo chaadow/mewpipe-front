@@ -1,8 +1,9 @@
-<div class="row" ng-controller="UploadCtrl as controller">
+<div class="row">
   <div class="small-12 columns">
     <h1>Upload a new video</h1>
     <p>Fill the form to upload a new video</p>
-    <form method="post" action="#" enctype="multipart/form-data">
+
+    <form name="uploadForm" novalidate="" ng-submit="uploadVideo()"  id="uploadForm">
       <div class="row">
         <div class="small-12 columns">
           <div class="row">
@@ -10,20 +11,26 @@
               <label for="right-label" class="right inline">Your video</label>
             </div>
             <div class="small-10 columns">
-              <input type="file" name="videouploaded" />
-              <input type="hidden" name="MAX_FILE_SIZE" value="65536000" />
+              <input type="file"
+                     ng-file-select
+                     ng-model="file"
+                     accept="video/*"
+                     ng-required="true"
+                     ngf-max-size='500000000'
+                     placeholder="Vidéo*">
+
+            </div>
             </div>
           </div>
-        </div>
       </div>
       <div class="row">
         <div class="small-12 columns">
           <div class="row">
             <div class="small-2 columns">
-              <label for="right-label" class="right inline">Title</label>
+              <label for="right-label" class="right inline" >Title</label>
             </div>
             <div class="small-10 columns">
-              <input type="text" id="right-label" placeholder="Shorter is better !">
+              <input type="text" id="right-label" placeholder="Shorter is better !" ng-model="title" ng-required="true">
             </div>
           </div>
         </div>
@@ -35,7 +42,7 @@
               <label for="right-label" class="right inline">Description</label>
             </div>
             <div class="small-10 columns">
-              <textarea name="vid_description" rows="5" placeholder="Describe your video"></textarea>
+              <textarea name="vid_description" rows="5" placeholder="Describe your video"  ng-model="description" ng-required="fale"></textarea>
             </div>
           </div>
         </div>
@@ -44,17 +51,49 @@
         <div class="small-12 columns">
           <div class="row">
             <div class="small-2 columns">
-              <label for="right-label" class="right inline">Tags</label>
+              <label for="right-label" class="right inline">Tags #</label>
             </div>
             <div class="small-10 columns">
-              <input type="text" name="vid_tags" placeholder="sport,music,travel">
+              <div class=" input-group">
+                <tags-input ng-model="tags"
+                            id="upload-tags"
+                            type="text"
+                            add-on-enter="true"
+                            add-on-space="true"
+                            add-on-comma="true"
+                            add-on-paste="true"
+                            paste-split-pattern="[, ]"
+                            allowed-tags-pattern="^[a-zA-Z\-]+$"
+                            max-length="25"
+                            ng-required="false"
+                            placeholder="nature, sport, jeux...">
+
+                </tags-input>
+               <!-- <auto-complete
+                  source="loadTags($query)"
+                  min-length="0",
+                  debounce-delay="0",
+                  max-result="5"
+                  >
+                </auto-complete>-->
+                <!--allowed-tags-pattern="/^[0-9a-zA-Z]+([0-9a-zA-Z]*[-._+])*[0-9a-zA-Z]+@[0-9a-zA-Z]+([-.][0-9a-zA-Z]+)*([0-9a-zA-Z]*[.])[a-zA-Z]{2,6}\,$/">-->
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="small-2 columns">
-          <input type="submit" value="Upload!" class="button">
+        <div class="small-12 columns">
+          <select ng-model="confidentiality" ng-required="true">
+            <option value="Public" selected="selected">Public</option>
+            <option value="PrivateLink">PrivateLink</option>
+            <option value="Private">Private</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+          <button type="submit">Upload !</button>
         </div>
       </div>
     </form>

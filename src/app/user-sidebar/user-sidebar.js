@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('mewpipe')
-  .controller('UserSidebarCtrl', ['$scope', 'FileReader', 'LocalService', function ($scope, FileReader, LocalService) {
+  .controller('UserSidebarCtrl', ['$scope', 'FileReader', 'LocalService', 'VideoService',
+    function ($scope, FileReader, LocalService, VideoService) {
     var userId = LocalService.get('user_id');
-    console.log(userId);
+
       $scope.showFastUploadForm = false;
 
       $scope.toggleUploadForm = function () {
@@ -27,8 +28,6 @@ angular.module('mewpipe')
     };*/
 
     $scope.$watch('file', function () {
-      console.log('ahhaah');
-      console.log($scope.file);
       if ($scope.file && $scope.file.length) {
         console.log('test2');
         $scope.uploadFilename = $scope.file[0].name;
@@ -43,7 +42,7 @@ angular.module('mewpipe')
 
   var voidForm = function () {
     $scope.title = undefined;
-    $scope.description = undefined;
+    $scope.confidentiality = undefined;
     $scope.file = undefined;
   };
 
@@ -51,14 +50,18 @@ angular.module('mewpipe')
     $scope.uploadVideo = function () {
       var toSend = {
           title: $scope.title,
-          description: $scope.description,
           user_id: userId,
           confidentiality: $scope.confidentiality,
           attached_file: $scope.file
-        },
-        blob = {};
+        };
 
       console.log(toSend);
+
+      /*VideoService.set(toSend).success(function (data) {
+        if (data) {
+          voidForm();
+        }
+      });*/
 
     }
 

@@ -7,6 +7,7 @@ angular.module('mewpipe', ['ngAnimate',
     'ngResource',
     'ui.router',
     'mm.foundation',
+    'ngTagsInput',
     "com.2fdevs.videogular",
     "com.2fdevs.videogular.plugins.controls",
     "com.2fdevs.videogular.plugins.overlayplay",
@@ -14,7 +15,8 @@ angular.module('mewpipe', ['ngAnimate',
     "common.services.localstorage",
     "common.services.fileservice",
     "common.directives.ngfileselect",
-    "common.services.filereader"
+    "common.services.filereader",
+    "common.services.video"
     ]
   )
   .config(function ($stateProvider, $urlRouterProvider) {
