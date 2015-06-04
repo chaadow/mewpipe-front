@@ -54,11 +54,23 @@ angular.module('mewpipe', ['ngAnimate',
         templateUrl: 'app/upload/upload.html',
         controller: 'UploadCtrl'
       })
+      .state('skel.editVideo', {
+        url: '/edit-video',
+        templateUrl: 'app/edit-video/edit-video.html',
+        controller: 'EditVideoCtrl'
+      })
+      .state('skel.pipe', {
+        url: '/pipe',
+        templateUrl: 'app/pipe/pipe.html',
+        controller: 'PipeCtrl'
+      })
       .state('homeOld', {
         url: '/homeold',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
+
+
 
     ;
 

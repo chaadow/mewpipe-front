@@ -4,6 +4,7 @@ angular.module('mewpipe')
   .controller('UserSidebarCtrl', ['$scope', 'FileReader', 'LocalService', 'VideoService',
     function ($scope, FileReader, LocalService, VideoService) {
     var userId = LocalService.get('user_id');
+      $scope.confidentiality = 'Public';
 
       $scope.showFastUploadForm = false;
 
@@ -42,7 +43,7 @@ angular.module('mewpipe')
 
   var voidForm = function () {
     $scope.title = undefined;
-    $scope.confidentiality = undefined;
+    $scope.confidentiality = 'Public';
     $scope.file = undefined;
   };
 
