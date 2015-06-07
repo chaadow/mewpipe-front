@@ -1,12 +1,12 @@
 <div class="user-sidebar">
   <div class="row">
     <div class="profile-img">
-      <span><img class="profile-avatar" src="../../assets/images/user.png" alt="me" width="150" height="150"></span>
+      <span><img class="profile-avatar" ng-src="{{avatar}}" alt="me" width="150" height="150"></span>
     </div>
   </div>
   <div class="row text-center">
       <div class="small-12 text-center">
-        <span class="username">Victor </br> Delaunay</span>
+        <span class="username">{{firstname}} {{lastname}}</span>
       </div>
   </div>
   <div class="row text-center userstats">
@@ -29,7 +29,6 @@
                      ng-model="file"
                      accept="video/*"
                      ng-required="true"
-                     ngf-max-size='500000000'
                      placeholder="Vidéo*">
 
             </div>
@@ -62,7 +61,7 @@
       <div class="small-12 columns">
         <ul class="">
           <li>Account settings <i class="fi-widget"></i></li>
-          <li>Log out <i class="fi-arrow-right"></i></li>
+          <li ng-click="logout()"><a>Log out <i class="fi-arrow-right"></i></a></li>
         </ul>
       </div>
 </div>

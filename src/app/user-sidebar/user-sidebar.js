@@ -2,8 +2,13 @@
 
 angular.module('mewpipe')
   .controller('UserSidebarCtrl', ['$scope', 'FileReader', 'LocalService', 'VideoService',
-    function ($scope, FileReader, LocalService, VideoService) {
+    '$state', 'AuthService',
+    function ($scope, FileReader, LocalService, VideoService, AuthService) {
     var userId = LocalService.get('user_id');
+      $scope.avatar = CONFIG.api_url + LocalService.get('user_avatar');
+      $scope.firstname = LocalService.get('user_firstname');
+      $scope.lastname = LocalService.get('user_lastname');
+
       $scope.confidentiality = 'Public';
 
       $scope.showFastUploadForm = false;
@@ -14,6 +19,14 @@ angular.module('mewpipe')
         }else if ( $scope.showFastUploadForm ) {
           $scope.showFastUploadForm = false;
         }
+      };
+
+      $scope.logout = function() {
+
+        AuthService.logout();
+        $scope.isLogged = false;
+        $state.go('skell.home');
+
       };
 
 
@@ -38,6 +51,8 @@ angular.module('mewpipe')
           .then(function(result) {
             $scope.preview_upload = result;
           });
+      }else {
+        console.log('testtttt');
       }
     });
 
@@ -52,17 +67,22 @@ angular.module('mewpipe')
       var toSend = {
           title: $scope.title,
           user_id: userId,
-          confidentiality: $scope.confidentiality,
-          attached_file: $scope.file
+          confidentiality: $scope.confidentiality
         };
 
       console.log(toSend);
 
-      /*VideoService.set(toSend).success(function (data) {
+      VideoService.set(toSend, $scope.file, function (err, data) {
+
+        if (err) {
+          console.log('err', err);
+        }
+
         if (data) {
+          console.log('data', data);
           voidForm();
         }
-      });*/
+      });
 
     }
 

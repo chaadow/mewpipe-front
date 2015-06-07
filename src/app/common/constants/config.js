@@ -1,25 +1,24 @@
-(function () {
-	'use strict';
+'use strict';
 
-	var CONFIG = {
-		dev: {
-			api_url: 'http://localhost:1337/'
-		},
-		devIE8: {
-			api_url: 'http://192.168.0.149:1337/'
-		},
-		preprod: {
-			api_url: ''
-		},
-		prod: {
-			api_url: ''
-		}
-	};
+var CONFIG = {
+  dev: {
+    state: 'dev',
+    api_url: 'http://api.mewpipe.com:5000/'
 
-	//Overriding with the desired config
-	CONFIG = CONFIG['dev'];
+  },
+  devIE8: {
+    state: 'devIE8',
+    api_url: 'http://api.mewpipe.com:5000/'
+  },
+  preprod: {
+    state: 'preprod',
+    api_url: 'http://api.mewpipe.com:5000/'
+  },
+  prod: {
+    state: 'prod',
+    api_url: 'http://api.mewpipe.com:5000/'
+  }
+};
 
-	angular.module('common.constants.config', [])
-		.constant('CONFIG', CONFIG);
+CONFIG = CONFIG['dev'];
 
-})();

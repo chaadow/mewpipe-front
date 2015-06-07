@@ -1,34 +1,54 @@
   <h2>Create your account !</h2>
   <p>Fill the following formular to complete your account's creation !</p>
-  <form name="signup">
-  <div class="row">
-    <div class="small-12">
-      <input type="text" placeholder="email*" class="input-default">
+  <form name="signupForm" novalidate="" ng-submit="signup()">
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="row">
+          <div class="small-2 columns">
+            <label class="right inline">Profile Picture</label>
+          </div>
+          <div class="small-10 columns">
+            <input type="file"
+                   ng-file-select="onFileSelect($files)"
+                   ng-model="file"
+                   accept="image/*"
+                   placeholder="Profile picture*">
+            <img ng-if="preview_upload" class="preview-upload" ng-src="{{preview_upload}}"/>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="row">
       <div class="small-12">
-        <input type="text" placeholder="password*" class="input-default">
+        <input type="email" placeholder="email*" ng-model="email" class="input-default"  ng-required="true">
       </div>
     </div>
     <div class="row">
       <div class="small-12">
-        <input type="text" placeholder="repeat password*" class="input-default">
+        <input type="password" placeholder="password*" ng-model="password" class="input-default" ng-minlength="8" ng-required="true">
       </div>
     </div>
     <div class="row">
       <div class="small-12">
-        <input type="text" placeholder="firstname*" class="input-default">
+        <input type="password" placeholder="repeat password*"  class="input-default" ng-minlength="6" ng-required="true">
       </div>
     </div>
     <div class="row">
       <div class="small-12">
-        <input type="text" placeholder="lastname*" class="input-default">
+        <input type="text" placeholder="firstname*" ng-model="firstname" class="input-default" (>
       </div>
     </div>
     <div class="row">
       <div class="small-12">
-        <a class="button btn-attract radius">Register</a>
+        <input type="text" placeholder="lastname*" ng-model="lastname" class="input-default" ng-required="">
       </div>
     </div>
+    <div class="row">
+      <div class="small-12">
+        <button class="button btn-attract radius"  type="submit">Register</button>
+      </div>
+    </div>
+
   </form>
 </div>
