@@ -12,7 +12,7 @@
             </div>
             <div class="small-10 columns">
               <input type="file"
-                     ng-file-select
+                     ng-file-select="onFileSelect($files)"
                      ng-model="file"
                      accept="video/*"
                      ng-required="true"

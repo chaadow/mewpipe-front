@@ -55,7 +55,7 @@ angular.module('mewpipe', ['ngAnimate',
         controller: 'HomeCtrl'
       })
       .state('skel.video', {
-        url: '/video',
+        url: '/video/:videoId',
         templateUrl: 'app/video/video.html',
         controller: 'VideoCtrl'
       })
@@ -65,7 +65,7 @@ angular.module('mewpipe', ['ngAnimate',
         controller: 'UploadCtrl'
       })
       .state('skel.editVideo', {
-        url: '/edit-video',
+        url: '/edit-video/:videoId',
         templateUrl: 'app/edit-video/edit-video.html',
         controller: 'EditVideoCtrl'
       })

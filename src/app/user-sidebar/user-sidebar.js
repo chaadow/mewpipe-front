@@ -30,18 +30,18 @@ angular.module('mewpipe')
       };
 
 
- /*   // Get video file
     $scope.getFile = function () {
       $scope.progressVal = 0;
+      console.log('test');
       FileReader.readAsDataUrl($scope.file, $scope)
 
         .then(function(result) {
             $scope.videoUploaded = result;
             console.log(result);
         });
-    };*/
+    };
 
-    $scope.$watch('file', function () {
+ /*   $scope.$watch('file', function () {
       if ($scope.file && $scope.file.length) {
         console.log('test2');
         $scope.uploadFilename = $scope.file[0].name;
@@ -54,7 +54,7 @@ angular.module('mewpipe')
       }else {
         console.log('testtttt');
       }
-    });
+    });*/
 
   var voidForm = function () {
     $scope.title = undefined;

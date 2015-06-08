@@ -1,8 +1,13 @@
 'use strict';
 
 angular.module('mewpipe')
-  .controller('HomeCtrl', ['$scope', 'LocalService', function ($scope, LocalService) {
+  .controller('HomeCtrl', ['$scope', 'LocalService', 'VideoService', function ($scope, LocalService, VideoService) {
 
+    $scope.apiUrl = CONFIG.api_url;
+    VideoService.get().success(function (data) {
+      console.log(data);
+      $scope.videos = data.videos;
+    });
 
     $scope.latestUploadVideos = [
       {

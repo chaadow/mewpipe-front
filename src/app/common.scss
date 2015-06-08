@@ -252,3 +252,15 @@ h1,h2,h3,h4,h5,p,span,a {
   width: 100px;
 }
 /************/
+
+/*** TAGS ****/
+tags-input .tags .tag-item {
+  color: white;
+  background: $attractColor;
+  border-color: $attractColor;
+}
+
+tags-input .tags .tag-item .remove-button {
+  color: white;
+}
+/*************/

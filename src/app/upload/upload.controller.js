@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('mewpipe')
-  .controller('UploadCtrl', ['$scope', '$sce', 'LocalService', 'VideoService',
-    function ($scope, $sce, LocalService, VideoService) {
+  .controller('UploadCtrl', ['$scope', '$sce', 'LocalService', 'VideoService', 'FileReader',
+    function ($scope, $sce, LocalService, VideoService, FileReader) {
       $scope.confidentiality = 'Public';
       var userId = LocalService.get('user_id');
 
-      $scope.$watch('file', function () {
+      /*$scope.$watch('file', function () {
         if ($scope.file && $scope.file.length) {
           console.log('test2');
           $scope.uploadFilename = $scope.file[0].name;
@@ -17,7 +17,18 @@ angular.module('mewpipe')
               $scope.preview_upload = result;
             });
         }
-      });
+      });*/
+
+      $scope.getFile = function () {
+        $scope.progressVal = 0;
+        console.log('test');
+        FileReader.readAsDataUrl($scope.file, $scope)
+
+          .then(function(result) {
+            $scope.videoUploaded = result;
+            console.log(result);
+          });
+      };
 
     /*  $scope.loadTags = function (query) {
 
@@ -34,24 +45,33 @@ angular.module('mewpipe')
 
 
       $scope.uploadVideo = function () {
-        //var tagsList = _.pluck($scope.tags, "text");
         console.log($scope.tags);
+
+        var tagsList = _.pluck($scope.tags, "text");
+            tagsList = tagsList.join(', ');
+
+
         var toSend = {
           title: $scope.title,
           description: $scope.description,
           user_id: userId,
           confidentiality: $scope.confidentiality,
-          tags: $scope.tags,
-          attached_file: $scope.file
+          tag_list: tagsList
         };
 
         console.log(toSend);
 
-       /* VideoService.set(toSend).success(function (data) {
+        VideoService.set(toSend, $scope.file, function (err, data) {
+          if (err) {
+            console.log(err);
+          }
+
           if (data) {
+            console.log(data);
             voidForm();
           }
-        });*/
+
+          });
 
       }
 

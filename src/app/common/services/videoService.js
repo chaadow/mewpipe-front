@@ -5,7 +5,7 @@
   function videoService($http, Upload) {
     return {
       get: function (companyId) {
-        return $http.get(CONFIG.api_url + 'video');
+        return $http.get(CONFIG.api_url + 'videos');
       },
       getLastPosted: function (nbItemsToLoad, companyId) {
         return $http.get(CONFIG.api_url + 'items/getLastPostedItems?limit=' + nbItemsToLoad + '&company_id=' +  companyId);
@@ -17,7 +17,7 @@
         return $http.get(CONFIG.api_url + 'items?user_id=' + userId);
       },
       getOne: function(itemId) {
-        var item = $http.get(CONFIG.api_url + 'items/' + itemId);
+        var item = $http.get(CONFIG.api_url + 'videos/' + itemId);
 
         item.error(function (data, err) {
           console.log('ITEM ERROR: ', err);

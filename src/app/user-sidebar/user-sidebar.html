@@ -25,7 +25,7 @@
           <div class="row">
             <div class="small-12 columns">
               <input type="file"
-                     ng-file-select
+                     ng-file-select="onFileSelect($files)"
                      ng-model="file"
                      accept="video/*"
                      ng-required="true"
