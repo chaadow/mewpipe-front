@@ -54,6 +54,11 @@ angular.module('mewpipe', ['ngAnimate',
         templateUrl: 'app/upload/upload.html',
         controller: 'UploadCtrl'
       })
+      .state('skel.search', {
+        url: '/search',
+        templateUrl: 'app/search/search.html',
+        controller: 'SearchCtrl'
+      })
       .state('homeOld', {
         url: '/homeold',
         templateUrl: 'app/main/main.html',
