@@ -2,10 +2,10 @@
 (function() {
   'use strict';
 
-  function videoService($http) {
+  function videoService($http, Upload) {
     return {
       get: function (companyId) {
-        return $http.get(CONFIG.api_url + 'items?company_id=' +  companyId);
+        return $http.get(CONFIG.api_url + 'video');
       },
       getLastPosted: function (nbItemsToLoad, companyId) {
         return $http.get(CONFIG.api_url + 'items/getLastPostedItems?limit=' + nbItemsToLoad + '&company_id=' +  companyId);
@@ -28,8 +28,24 @@
       getByTags: function (companyId, tag) {
         return $http.get(CONFIG.api_url + 'items/getItemsByTags?company_id=' + companyId + '&tag=' + tag);
       },
-      set: function(toSend) {
-        return $http.get(CONFIG.api_url + 'items?user_id=' + userId);
+      set: function(toSend, videoFile, callback) {
+
+
+        var videoUpload = Upload.upload({
+          url: CONFIG.api_url + 'videos/upload/',
+          method: 'POST',
+          fields: toSend,
+          file: videoFile
+        });
+
+        videoUpload.success(function(data, status, headers, config) {
+          callback(null, data);
+        })
+          .error(function(data, error) {
+            callback(data, null);
+          });
+
+
       },
       like: function(toSend) {
 
@@ -52,6 +68,6 @@
     };
   }
 
-  angular.module('common.services.video', [])
-    .factory('VideoService', ['$http',  videoService]);
+  angular.module('common.services.video', ['ngFileUpload'])
+    .factory('VideoService', ['$http', 'Upload',  videoService]);
 })();

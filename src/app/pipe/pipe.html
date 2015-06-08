@@ -1,0 +1,15 @@
+<div class="row" id="pipe-header">
+  <h1 class="text-center">My pipe</h1>
+</div>
+
+<div class="row" id="pipe-video-container">
+  <div ui-sref="skel.editVideo" class="pipe-video-wrapper" ng-repeat="video in latestUploadVideos">
+    <div class="pipe-video-thumbnail">
+      <img  src="assets/images/videothumb/{{video.thumbnail}}">
+    </div>
+    <div class="pipe-video-overlay">
+      <span>{{video.title}}</span>
+      <a class="pipe-edit-video-link" >Edit</a>
+    </div>
+  </div>
+</div>

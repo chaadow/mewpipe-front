@@ -1,9 +1,13 @@
-<form>
+<form novalidate="" ng-submit="submit()">
   <div class="row">
     <div class="large-8 columns">
       <label>Email
-        <input type="text">
+        <input type="email" ng-model="email">
+      </label>
+      <label>Password
+        <input type="password" ng-model="password">
       </label>
     </div>
+    <button type="submit">login</button>
   </div>
 </form>

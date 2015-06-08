@@ -16,10 +16,15 @@ angular.module('mewpipe', ['ngAnimate',
     "common.services.fileservice",
     "common.directives.ngfileselect",
     "common.services.filereader",
-    "common.services.video"
+    "common.services.video",
+    "common.services.user",
+    "common.services.auth",
+    "common.interceptors.auth",
+    "common.interceptors.http"
+
     ]
   )
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     $stateProvider
       .state('skel', {
         url: '',
@@ -36,6 +41,11 @@ angular.module('mewpipe', ['ngAnimate',
           'notConnected@skel':{
             templateUrl: 'app/signup/signup.html',
             controller: 'SignupCtrl'
+          }
+          ,
+          'notConnectedLogin@skel':{
+            templateUrl: 'app/login/login.html',
+            controller: 'LoginCtrl'
           }
         }
       })
@@ -58,15 +68,31 @@ angular.module('mewpipe', ['ngAnimate',
         url: '/search',
         templateUrl: 'app/search/search.html',
         controller: 'SearchCtrl'
-      })
-      .state('homeOld', {
-        url: '/homeold',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
-      })
+          .state('skel.editVideo', {
+            url: '/edit-video',
+            templateUrl: 'app/edit-video/edit-video.html',
+            controller: 'EditVideoCtrl'
+          })
+          .state('skel.pipe', {
+            url: '/pipe',
+            templateUrl: 'app/pipe/pipe.html',
+            controller: 'PipeCtrl'
+          })
+          .state('homeOld', {
+            url: '/homeold',
+            templateUrl: 'app/main/main.html',
+            controller: 'MainCtrl'
+          })
 
-    ;
+      });
 
     $urlRouterProvider.otherwise('/');
+ $httpProvider.interceptors.push('AuthInterceptor');
+    //$httpProvider.defaults.withCredentials = true;
+
+    $httpProvider.defaults.useXDomain = true;
+    $httpProvider.defaults.headers.common.accept = 'application/json';
+    //$httpProvider.defaults.withCredentials = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
   })
 ;

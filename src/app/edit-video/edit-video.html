@@ -1,28 +1,9 @@
 <div class="row">
   <div class="small-12 columns">
-    <h1>Upload a new video</h1>
-    <p>Fill the form to upload a new video</p>
+    <h1>Edit a  video</h1>
 
     <form name="uploadForm" novalidate="" ng-submit="uploadVideo()"  id="uploadForm">
-      <div class="row">
-        <div class="small-12 columns">
-          <div class="row">
-            <div class="small-2 columns">
-              <label for="right-label" class="right inline">Your video</label>
-            </div>
-            <div class="small-10 columns">
-              <input type="file"
-                     ng-file-select
-                     ng-model="file"
-                     accept="video/*"
-                     ng-required="true"
-                     ngf-max-size='500000000'
-                     placeholder="Vidéo*">
 
-            </div>
-            </div>
-          </div>
-      </div>
       <div class="row">
         <div class="small-12 columns">
           <div class="row">
@@ -30,7 +11,7 @@
               <label for="right-label" class="right inline" >Title</label>
             </div>
             <div class="small-10 columns">
-              <input type="text" id="right-label" placeholder="Shorter is better !" ng-model="title" ng-required="true">
+              <input type="text" id="right-label"  ng-model="title" ng-required="true">
             </div>
           </div>
         </div>
@@ -69,13 +50,13 @@
                             placeholder="nature, sport, jeux...">
 
                 </tags-input>
-               <!-- <auto-complete
-                  source="loadTags($query)"
-                  min-length="0",
-                  debounce-delay="0",
-                  max-result="5"
-                  >
-                </auto-complete>-->
+                <!-- <auto-complete
+                   source="loadTags($query)"
+                   min-length="0",
+                   debounce-delay="0",
+                   max-result="5"
+                   >
+                 </auto-complete>-->
                 <!--allowed-tags-pattern="/^[0-9a-zA-Z]+([0-9a-zA-Z]*[-._+])*[0-9a-zA-Z]+@[0-9a-zA-Z]+([-.][0-9a-zA-Z]+)*([0-9a-zA-Z]*[.])[a-zA-Z]{2,6}\,$/">-->
               </div>
             </div>

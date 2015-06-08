@@ -1,23 +1,10 @@
 'use strict';
 
 angular.module('mewpipe')
-  .controller('SkelCtrl', function ($scope, LocalService) {
+  .controller('SkelCtrl', function ($scope, LocalService, VideoService) {
 
 
-    var user = {
-      email: 'hair.thon@gmail.com',
-      username: 'Ayrton',
-      admin: true,
-      id: '1'
-    };
-
-
-    LocalService.set('user_id', user.id);
-    LocalService.set('user_email', user.email);
-    LocalService.set('user_username', user.username);
-    LocalService.set('user_admin', true);
-
-    $scope.isLogged = true;
+    $scope.isLogged = LocalService.get('isLogged');
 
 
     if (Modernizr.mq('only screen and (min-width: 64.063em)') == true) {

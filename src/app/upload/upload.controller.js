@@ -3,7 +3,7 @@
 angular.module('mewpipe')
   .controller('UploadCtrl', ['$scope', '$sce', 'LocalService', 'VideoService',
     function ($scope, $sce, LocalService, VideoService) {
-
+      $scope.confidentiality = 'Public';
       var userId = LocalService.get('user_id');
 
       $scope.$watch('file', function () {
@@ -27,7 +27,7 @@ angular.module('mewpipe')
       var voidForm = function () {
         $scope.title = undefined;
         $scope.description = undefined;
-        $scope.confidentiality = undefined;
+        $scope.confidentiality = 'Public';
         $scope.file = undefined;
         $scope.tags = undefined;
       };
