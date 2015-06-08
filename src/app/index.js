@@ -64,6 +64,11 @@ angular.module('mewpipe', ['ngAnimate',
         templateUrl: 'app/upload/upload.html',
         controller: 'UploadCtrl'
       })
+      .state('skel.search', {
+        url: '/search',
+        templateUrl: 'app/search/search.html',
+        controller: 'SearchCtrl'
+      })
       .state('skel.editVideo', {
         url: '/edit-video/:videoId',
         templateUrl: 'app/edit-video/edit-video.html',
@@ -80,9 +85,7 @@ angular.module('mewpipe', ['ngAnimate',
         controller: 'MainCtrl'
       })
 
-
-
-    ;
+      ;
 
     $urlRouterProvider.otherwise('/');
  $httpProvider.interceptors.push('AuthInterceptor');

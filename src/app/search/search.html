@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row collapse">
+      <div class="small-10 columns">
+        <input type="text" placeholder="Find a video by Title, Tags or Author !">
+      </div>
+      <div class="small-2 columns">
+        <a href="#" class="button postfix">Search !</a>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns" >
+    <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+      <li class="video-item" ng-repeat="defaultVideoFlow in defaultVideoFlows">
+        <a ui-sref="{{defaultVideoFlow.url}}">
+          <img class="right" ng-src="assets/images/videothumb/{{defaultVideoFlow.thumbnail}}" alt="{{defaultVideoFlow.title}}">
+        </a>
+        <div class="cartouche">
+          <h3>{{defaultVideoFlow.title}}</h3>
+          <p>{{defaultVideoFlow.creator}}</p>
+          <a class="GoToPlay" ui-sref="{{defaultVideoFlow.url}}">Play !</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
