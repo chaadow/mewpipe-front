@@ -68,23 +68,24 @@ angular.module('mewpipe', ['ngAnimate',
         url: '/search',
         templateUrl: 'app/search/search.html',
         controller: 'SearchCtrl'
-          .state('skel.editVideo', {
-            url: '/edit-video',
-            templateUrl: 'app/edit-video/edit-video.html',
-            controller: 'EditVideoCtrl'
-          })
-          .state('skel.pipe', {
-            url: '/pipe',
-            templateUrl: 'app/pipe/pipe.html',
-            controller: 'PipeCtrl'
-          })
-          .state('homeOld', {
-            url: '/homeold',
-            templateUrl: 'app/main/main.html',
-            controller: 'MainCtrl'
-          })
+      })
+      .state('skel.editVideo', {
+        url: '/edit-video',
+        templateUrl: 'app/edit-video/edit-video.html',
+        controller: 'EditVideoCtrl'
+      })
+      .state('skel.pipe', {
+        url: '/pipe',
+        templateUrl: 'app/pipe/pipe.html',
+        controller: 'PipeCtrl'
+      })
+      .state('homeOld', {
+        url: '/homeold',
+        templateUrl: 'app/main/main.html',
+        controller: 'MainCtrl'
+      })
 
-      });
+      ;
 
     $urlRouterProvider.otherwise('/');
  $httpProvider.interceptors.push('AuthInterceptor');
