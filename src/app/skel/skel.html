@@ -17,22 +17,22 @@
     <div class="row most-viewed">
       <div class="large-12 small-12  video-item" ng-repeat="mostViewed in mostVieweds">
         <div class="th">
-          <a ui-sref="{{mostViewed.url}}">
-            <img class="" ng-src="assets/images/videothumb/{{mostViewed.thumbnail}}" alt="{{mostViewed.title}}">
+          <a ui-sref="skel.video({videoId: mostViewed.id})">
+            <img class="most-viewed-thumb" ng-src="{{apiUrl}}{{mostViewed.thumb}}" alt="{{mostViewed.title}}">
           </a>
           <div class="caption">
             <div class="progress large-12 small-12">
               <span class="meter" style="width:{{mostViewed.pourcent}}%"></span>
             </div>
-            <span class="number">{{mostViewed.numbviews}}</span>
-            <p>{{mostViewed.creator}}</p>
+            <span class="number">{{mostViewed.view_count}}</span>
+            <p>{{mostViewed.user_id}}</p>
             <h3>{{mostViewed.title}}</h3>
           </div>
         </div>
       </div>
     </div>
     <div class="row top-rated">
-      <h2>Top Rated</h2>
+      <h2>Top Shared</h2>
       <div class="large-12 small-12  video-item" ng-repeat="topRated in topRateds">
         <div class="th">
           <a ui-sref="{{topRated.url}}">

@@ -5,7 +5,7 @@ angular.module('mewpipe')
 
 
     $scope.isLogged = LocalService.get('isLogged');
-
+    $scope.apiUrl = CONFIG.api_url;
 
     if (Modernizr.mq('only screen and (min-width: 64.063em)') == true) {
       $(document).ready( function(){
@@ -23,7 +23,12 @@ angular.module('mewpipe')
       });
     }
 
-    $scope.mostVieweds= [
+    VideoService.getMostViewed(3).success(function (data) {
+      console.log('mostviewed', data);
+      $scope.mostVieweds = data.videos;
+    });
+
+  /*  $scope.mostVieweds= [
       {
         'title': 'Titre de la video',
         'url': 'skel.video',
@@ -48,7 +53,7 @@ angular.module('mewpipe')
         'numbviews': 60,
         'pourcent': 48
       }
-    ];
+    ];*/
 
     $scope.topRateds= [
       {

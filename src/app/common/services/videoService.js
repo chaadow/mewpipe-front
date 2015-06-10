@@ -8,13 +8,16 @@
         return $http.get(CONFIG.api_url + 'videos');
       },
       getLastPosted: function (nbItemsToLoad, companyId) {
-        return $http.get(CONFIG.api_url + 'items/getLastPostedItems?limit=' + nbItemsToLoad + '&company_id=' +  companyId);
+        return $http.get(CONFIG.api_url + 'videos/getLastPostedItems?limit=' + nbItemsToLoad + '&company_id=' +  companyId);
+      },
+      getMostViewed: function (nbVideo) {
+        return $http.get(CONFIG.api_url + 'videos/?property=view_count&order=desc&per_page='+nbVideo);
       },
       getBestRanked: function (nbItemsToLoad, companyId) {
-        return $http.get(CONFIG.api_url + 'items/getBestRankedItems?limit=' + nbItemsToLoad + '&company_id=' +  companyId);
+        return $http.get(CONFIG.api_url + 'videos/getBestRankedItems?limit=' + nbItemsToLoad + '&company_id=' +  companyId);
       },
       getByUser: function (userId) {
-        return $http.get(CONFIG.api_url + 'items?user_id=' + userId);
+        return $http.get(CONFIG.api_url + 'videos?user_id=' + userId);
       },
       getOne: function(itemId) {
         var item = $http.get(CONFIG.api_url + 'videos/' + itemId);
@@ -47,19 +50,17 @@
 
 
       },
-      like: function(toSend) {
-
-        return $http.post(CONFIG.api_url + 'likes/create', toSend);
-
+      update: function(toSend, videoId) {
+        return $http.put(CONFIG.api_url + 'videos/' + videoId, toSend);
       },
-      checkItemIsLiked: function(toSend) {
-
-        return $http.post(CONFIG.api_url + 'likes/find', toSend);
-
-      },
-      //TODO
-      update: function(toSend) {
-
+      viewed: function(videoId, callback) {
+        var view = $http.put(CONFIG.api_url + 'videos/' + videoId + '/increment_view');
+        view.success(function(data) {
+          callback(null, data);
+        })
+          .error(function(data, error) {
+            callback(data, null);
+          });
       },
       //TODO
       destroy: function() {

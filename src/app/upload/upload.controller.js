@@ -5,16 +5,20 @@ angular.module('mewpipe')
     function ($scope, $sce, LocalService, VideoService, FileReader) {
       $scope.confidentiality = 'Public';
       var userId = LocalService.get('user_id');
+      $scope.uploadFormat = ['.3gp', '.3g2', '.3gp2', '.asf',
+                              '.mts', '.m2ts', '.avi', '.mod',
+                                '.dv', '.ts', '.vob', '.xesc', '.mp4',
+                                '.mpeg', '.mpg','.m2v', '.ismv', '.wmv', '.mov', '.qt'];
+      $scope.uploadFilename = 'Choose a video';
 
       /*$scope.$watch('file', function () {
         if ($scope.file && $scope.file.length) {
-          console.log('test2');
-          $scope.uploadFilename = $scope.file[0].name;
+          $scope.uploadFilename = $scope.file.name;
           $scope.noFile = 0;
-
-          FileReader.readAsDataUrl($scope.file[0], $scope)
+          FileReader.readAsDataUrl($scope.file, $scope)
             .then(function(result) {
-              $scope.preview_upload = result;
+              $scope.videoUploaded = result;
+              console.log(result)
             });
         }
       });*/

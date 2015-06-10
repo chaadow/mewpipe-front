@@ -6,11 +6,13 @@ angular.module('mewpipe')
 
       $scope.videoId = $stateParams.videoId;
 
+
       console.log($scope.videoId);
 
       VideoService.getOne($scope.videoId).success(function (data) {
         console.log(data);
         var video = data.video;
+        $scope.tags = [];
 
         console.log(CONFIG.api_url + video.file);
 
@@ -37,14 +39,40 @@ angular.module('mewpipe')
 
         $scope.title = videoConfig.title;
         $scope.description = videoConfig.description;
-        $scope.confidentiality = videoConfig.confidentiality;
-        $scope.tags = videoConfig.tags;
+        $scope.confidentiality = video.confidentiality;
 
-        console.log($scope.title);
+        _.forEach(video.tag_list, function (n, key) {
+            $scope.tags.push({text: video.tag_list[key]});
+        });
 
       });
 
 
+      $scope.videoUpdate = function () {
 
+        var tagsList = _.pluck($scope.tags, "text");
+        tagsList = tagsList.join(', ');
+
+
+        var toSend = {
+          title: $scope.title,
+          description: $scope.description,
+          confidentiality: $scope.confidentiality,
+          tag_list: tagsList
+        };
+
+
+        VideoService.update(toSend, $scope.videoId).success(function (data) {
+            if (data) {
+              console.log(data);
+            }
+        })
+          .error(function (err) {
+              console.log(err);
+
+          });
+
+
+      }
 
   }]);
