@@ -1,0 +1,59 @@
+<h2>Edit your account !</h2>
+
+<form name="signupForm" novalidate="" ng-submit="editUser()">
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="row">
+        <div class="small-2 columns">
+          <label class="right inline">Profile Picture</label>
+        </div>
+        <div class="small-10 columns">
+          <input type="file"
+                 ng-file-select="onFileSelect($files)"
+                 ng-model="file"
+                 accept="image/*"
+                 placeholder="Profile picture*">
+          <img ng-if="preview_upload" class="preview-upload" ng-src="{{preview_upload}}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12">
+      <input type="email" placeholder="email" ng-model="user.email" class=""  ng-required="true">
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12">
+      <input type="password" placeholder="password" ng-model="user.password" class="" ng-minlength="8" ng-required="true">
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12">
+      <input type="password" placeholder="repeat password*"  class="" ng-minlength="6" ng-required="true">
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12">
+      <input type="text" placeholder="firstname" ng-model="user.firstname" class="" >
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12">
+      <input type="text" placeholder="lastname" ng-model="user.lastname" class="" ng-required="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12">
+      <button class="button btn-attract radius"  type="submit">Register</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12">
+      <button class="button btn-attract radius" ng-click="deleteVideo()">Delete my account</button>
+    </div>
+  </div>
+
+</form>
+</div>

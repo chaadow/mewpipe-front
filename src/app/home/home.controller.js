@@ -3,6 +3,9 @@
 angular.module('mewpipe')
   .controller('HomeCtrl', ['$scope', 'LocalService', 'VideoService', function ($scope, LocalService, VideoService) {
 
+    //SweetAlert.swal("Here's a message");
+
+
     $scope.apiUrl = CONFIG.api_url;
     VideoService.get().success(function (data) {
       console.log(data);

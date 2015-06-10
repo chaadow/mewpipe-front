@@ -58,9 +58,6 @@ angular.module('mewpipe')
         if (data) {
           $scope.videoConfig.views = data.count;
           console.log(data.count);
-
-          $timeout( function(){ $scope.$apply(); }, 3000);
-
         }
       };
 

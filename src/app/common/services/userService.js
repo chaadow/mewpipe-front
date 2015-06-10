@@ -47,8 +47,8 @@
 			update: function(toSend, profilePicture, callback) {
 
 				var updateUser = Upload.upload({
-					url: CONFIG.api_url + 'users/update/'+ toSend.id,
-					method: 'POST',
+					url: CONFIG.api_url + 'users/'+ toSend.id,
+					method: 'PUT',
 					fields: toSend,
 					file: profilePicture,
           fileFormDataName: 'avatar'
@@ -62,9 +62,9 @@
 					});
 
 			},
-			destroy: function() {
-
-			},
+			destroy: function(userId) {
+        return $http.delete(CONFIG.api_url + 'users/' + userId);
+      },
 			getOne: function(userId, callback) {
 				var user = $http.get(CONFIG.api_url + 'users/' + userId);
 
@@ -81,7 +81,6 @@
 					});
 
 			}
-
 		};
 	}
 
