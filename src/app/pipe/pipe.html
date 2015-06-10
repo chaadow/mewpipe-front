@@ -1,11 +1,14 @@
 <div class="row" id="pipe-header">
   <div class="small-12 medium-3 columns text-center">
     <div class="profile-img">
-      <span><img class="profile-avatar" src="http://api.mewpipe.com:5000//system/users/avatars/000/000/001/thumbnail/1151072_10201338251591861_1074746732_n.jpg?1433938996" alt="me" width="150" height="150"></span>
+      <span><img class="profile-avatar" ng-src="{{apiUrl}}{{user.avatar}}" alt="me" width="150" height="150"></span>
     </div>
   </div>
   <div class="small-12 medium-9 columns user-infos-pipe text-right small-text-center">
-    <h1 class="">Victor Delaunay's Pipe !</h1>
+    <h1 class="">
+      <span ng-show="myPipe">My Pipe ! </span>
+      <span ng-show="!myPipe">{{user.firstname}} {{user.lastname}}'s Pipe ! </span>
+    </h1>
     <div class="text-center userstats">
       <div class="small-6 columns text-right">
         <i class="fi-eye"></i> 211
@@ -15,17 +18,17 @@
       </div>
     </div>
   </div>
-
+<a ui-sref="skel.editUser({userId: user.id})">Edit my profile</a>
 </div>
 <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-  <li ui-sref="skel.editVideo" class="video-item" ng-repeat="video in latestUploadVideos">
+  <li ui-sref="skel.editVideo" class="video-item" ng-repeat="video in user.videos">
     <div class="th">
       <a ui-sref="#">
-        <img class="right" src="assets/images/videothumb/{{video.thumbnail}}">
+        <img class="right"  ng-src="{{apiUrl}}{{video.thumb}}">
       </a>
       <div class="caption">
         <h3>{{video.title}}</h3>
-        <p>blabla</p>
+        <p>{{video.description}}</p>
         <a class="GoToPlay" ui-sref="#">Play !</a>
       </div>
     </div>

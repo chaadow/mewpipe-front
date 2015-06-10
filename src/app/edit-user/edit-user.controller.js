@@ -2,8 +2,8 @@
 
 angular.module('mewpipe')
   .controller('EditUserCtrl', ['$scope', 'LocalService', 'UserService',
-    '$stateParams', 'FileReader',
-    function ($scope, LocalService, UserService, $stateParams, FileReader) {
+    '$stateParams', 'FileReader', 'AuthService', '$state',
+    function ($scope, LocalService, UserService, $stateParams, FileReader, $state) {
 
     $scope.apiUrl = CONFIG.api_url;
     $scope.userId = $stateParams.userId;
@@ -71,9 +71,8 @@ angular.module('mewpipe')
       };
 
       $scope.deleteVideo = function () {
-        UserService.destroy($scope.userId).success(function (data) {
-
-        });
+          LocalService.clear();
+          $state.go('skell.home');
       }
 
   }]);

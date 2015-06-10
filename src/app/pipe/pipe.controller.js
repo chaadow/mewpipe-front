@@ -1,34 +1,26 @@
 'use strict';
 
 angular.module('mewpipe')
-  .controller('PipeCtrl', ['$scope', 'LocalService',  function ($scope, LocalServic) {
+  .controller('PipeCtrl', ['$scope', 'LocalService', 'UserService', '$stateParams',  function ($scope, LocalService, UserService, $stateParams) {
+    $scope.apiUrl = CONFIG.api_url;
+    $scope.userId = $stateParams.userId;
+    var myId = LocalService.get('user_id');
 
-    $scope.latestUploadVideos = [
-      {
-        'title': 'The coal-mining town of Bulli',
-        'url': 'skel.video',
-        'creator': "User's name",
-        'thumbnail': 'default1.jpg'
-      },
-      {
-        'title': 'Orson Welles’ 1973 masterpiece, F for Fake',
-        'url': 'skel.video',
-        'creator': "User's name",
-        'thumbnail': 'default2.jpg'
-      },
-      {
-        'title': 'Portrait of a dog walker',
-        'url': 'skel.videoo',
-        'creator': "User's name",
-        'thumbnail': 'default3.jpg'
-      },
-      {
-        'title': 'La petite maison (2004)',
-        'url': 'skel.video',
-        'creator': "User's name",
-        'thumbnail': 'default4.jpg'
+    if (myId !== $scope.userId) {
+      $scope.myPipe = true;
+    }
+
+    UserService.getOne($scope.userId, function (err, data) {
+      if (err) {
+        console.log('get user err:', err);
       }
-    ];
+
+      if (data) {
+        console.log('get user :', data);
+        $scope.user = data.user;
+      }
+
+    });
 
 
   }]);

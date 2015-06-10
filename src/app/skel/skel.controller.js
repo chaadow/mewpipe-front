@@ -4,6 +4,19 @@ angular.module('mewpipe')
   .controller('SkelCtrl', function ($scope, LocalService, VideoService) {
 
 
+    $scope.sidebarState = 'login';
+
+
+    $scope.goToLogin = function () {
+      $scope.sidebarState = 'signup';
+      console.log($scope.sidebarState);
+    };
+
+    $scope.goToSignup = function () {
+      $scope.sidebarState = 'login';
+      console.log($scope.sidebarState);
+    };
+
     $scope.isLogged = LocalService.get('isLogged');
     $scope.apiUrl = CONFIG.api_url;
 

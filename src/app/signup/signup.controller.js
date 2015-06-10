@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('mewpipe')
-  .controller('SignupCtrl', ['$scope', 'UserService', 'FileReader', 'AuthService', '$state',
-    function ($scope, UserService, FileReader, AuthService, $state) {
+  .controller('SignupCtrl', ['$scope', 'UserService', 'FileReader', 'AuthService', '$state', '$rootScope',
+    function ($scope, UserService, FileReader, AuthService, $state, $rootScope) {
 
 
-
-    $scope.getFile = function () {
+      $scope.getFile = function () {
       FileReader.readAsDataUrl($scope.file, $scope)
 
         .then(function(result) {
@@ -60,7 +59,7 @@ angular.module('mewpipe')
         AuthService.login(toSend)
           .success(function (data) {
             console.debug("DATA", data);
-            $state.go('skell.home');
+            $state.go($state.current, {}, {reload: true});
           })
           .error(function (data, err) {
 

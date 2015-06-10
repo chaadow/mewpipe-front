@@ -2,14 +2,14 @@
 
 angular.module('mewpipe')
   .controller('UserSidebarCtrl', ['$scope', 'FileReader', 'LocalService', 'VideoService',
-    '$state', 'AuthService',
-    function ($scope, FileReader, LocalService, VideoService, AuthService) {
-    var userId = LocalService.get('user_id');
+    '$state',
+    function ($scope, FileReader, LocalService, VideoService, $state) {
+    $scope.userId = LocalService.get('user_id');
       $scope.avatar = CONFIG.api_url + LocalService.get('user_avatar');
       $scope.firstname = LocalService.get('user_firstname');
       $scope.lastname = LocalService.get('user_lastname');
 
-      $scope.confidentiality = 'Public';
+      $scope.confidentiality = 'public';
 
       $scope.showFastUploadForm = false;
 
@@ -21,12 +21,12 @@ angular.module('mewpipe')
         }
       };
 
+
       $scope.logout = function() {
 
-        AuthService.logout();
-        $scope.isLogged = false;
-        $state.go('skell.home');
-
+        LocalService.clear();
+        $scope.$parent.isLogged = false;
+        $state.go($state.current, {}, {reload: true});
       };
 
 
@@ -66,7 +66,7 @@ angular.module('mewpipe')
     $scope.uploadVideo = function () {
       var toSend = {
           title: $scope.title,
-          user_id: userId,
+          user_id: $scope.userId,
           confidentiality: $scope.confidentiality
         };
 

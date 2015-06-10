@@ -7,12 +7,12 @@
 				var LocalService = $injector.get('LocalService');
 				var token;
 
-				if (LocalService.get('access_token')) {
+				if (LocalService.get('mewpipe_token')) {
 					//token = angular.fromJson(LocalService.get('cnco_token'));
-					token = LocalService.get('access_token')
-				}
+					token = LocalService.get('mewpipe_token');
+        }
 				if (token) {
-					config.headers.access_token = token;
+					config.headers.Authorization = token;
 				}
 
 

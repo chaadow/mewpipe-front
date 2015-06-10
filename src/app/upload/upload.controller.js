@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('mewpipe')
-  .controller('UploadCtrl', ['$scope', '$sce', 'LocalService', 'VideoService', 'FileReader',
-    function ($scope, $sce, LocalService, VideoService, FileReader) {
+  .controller('UploadCtrl', ['$scope', '$sce', 'LocalService', 'VideoService', 'FileReader', '$state',
+    function ($scope, $sce, LocalService, VideoService, FileReader, $state) {
       $scope.confidentiality = 'Public';
       var userId = LocalService.get('user_id');
       $scope.uploadFormat = ['.3gp', '.3g2', '.3gp2', '.asf',
@@ -10,6 +10,9 @@ angular.module('mewpipe')
                                 '.dv', '.ts', '.vob', '.xesc', '.mp4',
                                 '.mpeg', '.mpg','.m2v', '.ismv', '.wmv', '.mov', '.qt'];
       $scope.uploadFilename = 'Choose a video';
+
+      $scope.confidentiality = 'public';
+
 
       /*$scope.$watch('file', function () {
         if ($scope.file && $scope.file.length) {
@@ -42,7 +45,7 @@ angular.module('mewpipe')
       var voidForm = function () {
         $scope.title = undefined;
         $scope.description = undefined;
-        $scope.confidentiality = 'Public';
+        $scope.confidentiality = 'public';
         $scope.file = undefined;
         $scope.tags = undefined;
       };

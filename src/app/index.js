@@ -25,7 +25,7 @@ angular.module('mewpipe', ['ngAnimate',
 
     ]
   )
-  .config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider  ) {
+  .config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider) {
     $stateProvider
       .state('skel', {
         url: '',
@@ -76,7 +76,7 @@ angular.module('mewpipe', ['ngAnimate',
         controller: 'EditVideoCtrl'
       })
       .state('skel.pipe', {
-        url: '/pipe',
+        url: '/pipe/:userId',
         templateUrl: 'app/pipe/pipe.html',
         controller: 'PipeCtrl'
       })
@@ -108,5 +108,8 @@ angular.module('mewpipe', ['ngAnimate',
     cfpLoadingBarProvider.latencyThreshold = 100;
     cfpLoadingBarProvider.includeBar = true;
     cfpLoadingBarProvider.includeSpinner = false;
+
+
+
   })
 ;

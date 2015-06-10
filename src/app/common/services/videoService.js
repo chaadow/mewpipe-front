@@ -39,7 +39,18 @@
           method: 'POST',
           fields: toSend,
           file: videoFile
-        });
+        })
+          .progress(function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            //callback(progressPercentage);
+            console.log('progress: ' + progressPercentage + '% ' +
+            evt.config.file.name);
+          }).success(function (data, status, headers, config) {
+            console.log('file ' + config.file.name + 'uploaded. Response: ' +
+            JSON.stringify(data));
+
+            //callbackResult(data, null);
+          });
 
         videoUpload.success(function(data, status, headers, config) {
           callback(null, data);

@@ -57,12 +57,12 @@
         <div ui-view="connected"></div>
       </div>
 
-      <!--<div ng-show="!isLogged">
-        <div  ui-view="notConnected"></div>
-      </div>
--->
       <div ng-show="!isLogged">
-        <div ui-view="notConnectedLogin"></div>
+        <div ng-if="sidebarState == 'signup'"  ui-view="notConnected"></div>
+        <div ng-if="sidebarState == 'login'" ui-view="notConnectedLogin"></div>
+
+        <a ng-show="sidebarState == 'signup'" ng-click="goToSignup()">Login</a>
+        <a ng-show="sidebarState == 'login'" ng-click="goToLogin()">Signup</a>
       </div>
     </div>
   </div>
