@@ -4,6 +4,7 @@ angular.module('mewpipe')
   .controller('PipeCtrl', ['$scope', 'LocalService', 'UserService', '$stateParams',  function ($scope, LocalService, UserService, $stateParams) {
     $scope.apiUrl = CONFIG.api_url;
     $scope.userId = $stateParams.userId;
+    $scope.myPipe = false;
     var myId = LocalService.get('user_id');
 
     if (myId !== $scope.userId) {

@@ -5,10 +5,17 @@
     </div>
   </div>
   <div class="small-12 medium-9 columns user-infos-pipe text-right small-text-center">
-    <h1 class="">
+
+    <span class="thin">Welcome on the</span>
+    <h1 >
       <span ng-show="myPipe">My Pipe ! </span>
       <span ng-show="!myPipe">{{user.firstname}} {{user.lastname}}'s Pipe ! </span>
     </h1>
+    <span class="thin">Here you can find all his videos uploaded</span>
+
+
+
+
     <div class="text-center userstats">
       <div class="small-6 columns text-right">
         <i class="fi-eye"></i> 211
@@ -18,7 +25,7 @@
       </div>
     </div>
   </div>
-<a ui-sref="skel.editUser({userId: user.id})">Edit my profile</a>
+<a ng-show="myPipe" ui-sref="skel.editUser({userId: user.id})">Edit my profile</a>
 </div>
 <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
   <li ui-sref="skel.editVideo" class="video-item" ng-repeat="video in user.videos">
