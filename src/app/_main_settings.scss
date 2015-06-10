@@ -392,7 +392,7 @@ $lightGrey      : #A3A2A2;
 
 // We use this to control the maximum number of block grid elements per row
 // $block-grid-elements: 12;
-// $block-grid-default-spacing: rem-calc(20);
+$block-grid-default-spacing: rem-calc(10);
 
 // $align-block-grid-to-grid: false;
 // @if $align-block-grid-to-grid {$block-grid-default-spacing: $column-gutter;}

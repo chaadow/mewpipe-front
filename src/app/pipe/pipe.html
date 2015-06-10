@@ -1,15 +1,33 @@
 <div class="row" id="pipe-header">
-  <h1 class="text-center">My pipe</h1>
-</div>
-
-<div class="row" id="pipe-video-container">
-  <div ui-sref="skel.editVideo" class="pipe-video-wrapper" ng-repeat="video in latestUploadVideos">
-    <div class="pipe-video-thumbnail">
-      <img  src="assets/images/videothumb/{{video.thumbnail}}">
-    </div>
-    <div class="pipe-video-overlay">
-      <span>{{video.title}}</span>
-      <a class="pipe-edit-video-link" >Edit</a>
+  <div class="small-12 medium-3 columns text-center">
+    <div class="profile-img">
+      <span><img class="profile-avatar" src="http://api.mewpipe.com:5000//system/users/avatars/000/000/001/thumbnail/1151072_10201338251591861_1074746732_n.jpg?1433938996" alt="me" width="150" height="150"></span>
     </div>
   </div>
+  <div class="small-12 medium-9 columns user-infos-pipe text-right small-text-center">
+    <h1 class="">Victor Delaunay's Pipe !</h1>
+    <div class="text-center userstats">
+      <div class="small-6 columns text-right">
+        <i class="fi-eye"></i> 211
+      </div>
+      <div class="small-6 columns text-left">
+        <i class="fi-video"></i> 5
+      </div>
+    </div>
+  </div>
+
 </div>
+<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+  <li ui-sref="skel.editVideo" class="video-item" ng-repeat="video in latestUploadVideos">
+    <div class="th">
+      <a ui-sref="#">
+        <img class="right" src="assets/images/videothumb/{{video.thumbnail}}">
+      </a>
+      <div class="caption">
+        <h3>{{video.title}}</h3>
+        <p>blabla</p>
+        <a class="GoToPlay" ui-sref="#">Play !</a>
+      </div>
+    </div>
+  </li>
+</ul>

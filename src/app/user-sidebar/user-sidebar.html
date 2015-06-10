@@ -18,12 +18,12 @@
       </div>
   </div>
   <div class="row">
-      <div class="small-12 columns">
+      <div class="small-12">
         <a class="button btn-attract radius addvideo" ng-click="toggleUploadForm()" ng-class="{activ: showFastUploadForm}">Add a video</a>
 
         <form ng-show="showFastUploadForm" novalidate="" ng-submit="uploadVideo()" name="fastUpload" id="fastUpload" ng-class="{open: showFastUploadForm}">
           <div class="row">
-            <div class="small-12 columns">
+            <div class="small-12 ">
               <input type="file"
                      ng-file-select="onFileSelect($files)"
                      ng-model="file"
@@ -34,12 +34,12 @@
             </div>
           </div>
           <div class="row">
-            <div class="small-12 columns">
+            <div class="small-12 ">
               <input type="text" placeholder="Title*" name="title" ng-model="title" ng-required="true" >
             </div>
           </div>
           <div class="row">
-            <div class="small-12 columns">
+            <div class="small-12 ">
               <select ng-model="confidentiality" ng-required="true">
                 <option value="public" selected="selected">Public</option>
                 <option value="privateLink">PrivateLink</option>
@@ -48,21 +48,20 @@
             </div>
           </div>
 
-          <button type="submit" ng-disabled="fastUpload.$invalid" >
+          <button type="submit" ng-disabled="fastUpload.$invalid" class="btn-attract">
             Submit
           </button>
         </form>
       </div>
-      <div class="small-12 columns">
+      <div class="small-12">
         <a ui-sref="skel.pipe" class="button  btn-secondary radius">My pipe</a>
       </div>
   </div>
   <div class="row">
-      <div class="small-12 columns">
-        <ul class="">
-          <li>Account settings <i class="fi-widget"></i></li>
-          <li ng-click="logout()"><a>Log out <i class="fi-arrow-right"></i></a></li>
-        </ul>
+      <div class="small-12 columns user-settings">
+        <i class="fi-widget"><a href="#">Account settings</a></i>
+        <i class="fi-arrow-right"><a href="#" ng-click="logout()">Log out</a></i>
+
       </div>
 </div>
 </div>

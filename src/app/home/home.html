@@ -1,6 +1,5 @@
-
-  <div class="row latestUploaded">
-    <div class="video-item" ng-repeat="latestUploadVideo in videos">
+  <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+  <li class="video-item" ng-repeat="latestUploadVideo in videos">
       <div class="th">
         <a ui-sref="skel.video({videoId: latestUploadVideo.id})">
           <img class="right" ng-src="{{apiUrl}}{{latestUploadVideo.thumb}}" alt="{{latestUploadVideo.title}}">
@@ -11,8 +10,8 @@
           <a class="GoToPlay" ui-sref="skel.video({videoId: latestUploadVideo.id})">Play !</a>
         </div>
       </div>
-    </div>
-  </div>
+  </li>
+</ul>
  <!-- <div class="row cat1">
     <div class="video-item" ng-repeat="latestUploadVideo in latestUploadVideos">
       <div class="th">

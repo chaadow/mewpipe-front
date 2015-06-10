@@ -7,10 +7,10 @@
       <div class="row">
         <div class="small-12 columns">
           <div class="row">
-            <div class="small-2 columns">
+            <div class="small-2 medium-2 columns">
               <label for="right-label" class="right inline">Your video</label>
             </div>
-            <div class="small-10 columns">
+            <div class="small-10 medium-5 columns">
               <input type="file"
                      ng-file-select="onFileSelect($files)"
                      ng-model="file"
@@ -18,23 +18,23 @@
                      ng-required="true"
                      ngf-max-size='500000000'
                      placeholder="Vidéo*">
-
-              <!--<div ng-file-drop ng-file-select ng-model="file" class=" cnco-input-common"
-                     drag-over-class="dragover" ng-multiple="false"
-                     accept="{{uploadFormat}}" >
-                <div class="row" >
-                  <div class="col-sm-12 text-center ">
-                    <div  class="drop-box">
-                      <span class="glyphicon glyphicon-picture"></span>
-                      <span>{{uploadFilename}}</span>
-                    </div>
-                  </div>
+            </div>
+            <div class="small-12 medium-5 columns">
+              <div class="row">
+                <div class="small-2 columns">
+                  <label for="right-label" class="right inline">Status</label>
                 </div>
-              </div>-->
-
+                <div class="small-10 columns">
+                  <select ng-model="confidentiality" ng-required="true" placeholder="Public ? Private ?">
+                    <option value="public" selected>Public vidéo</option>
+                    <option value="privateLink">Visible only with the link</option>
+                    <option value="private">Private video</option>
+                  </select>
+                </div>
+              </div>
             </div>
             </div>
-          </div>
+        </div>
       </div>
       <div class="row">
         <div class="small-12 columns">
@@ -97,16 +97,7 @@
       </div>
       <div class="row">
         <div class="small-12 columns">
-          <select ng-model="confidentiality" ng-required="true">
-            <option value="public" selected>Public</option>
-            <option value="privateLink">PrivateLink</option>
-            <option value="private">Private</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-12 columns">
-          <button type="submit">Upload !</button>
+          <button type="submit" class="btn-attract">Upload !</button>
         </div>
       </div>
     </form>
