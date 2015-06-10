@@ -8,6 +8,7 @@ angular.module('mewpipe', ['ngAnimate',
     'ui.router',
     'mm.foundation',
     'ngTagsInput',
+    'angular-loading-bar',
     "com.2fdevs.videogular",
     "com.2fdevs.videogular.plugins.controls",
     "com.2fdevs.videogular.plugins.overlayplay",
@@ -24,7 +25,7 @@ angular.module('mewpipe', ['ngAnimate',
 
     ]
   )
-  .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider  ) {
     $stateProvider
       .state('skel', {
         url: '',
@@ -79,6 +80,11 @@ angular.module('mewpipe', ['ngAnimate',
         templateUrl: 'app/pipe/pipe.html',
         controller: 'PipeCtrl'
       })
+      .state('skel.editUser', {
+        url: '/edit-user/:userId',
+        templateUrl: 'app/edit-user/edit-user.html',
+        controller: 'EditUserCtrl'
+      })
       .state('homeOld', {
         url: '/homeold',
         templateUrl: 'app/main/main.html',
@@ -88,12 +94,19 @@ angular.module('mewpipe', ['ngAnimate',
       ;
 
     $urlRouterProvider.otherwise('/');
- $httpProvider.interceptors.push('AuthInterceptor');
+  $httpProvider.interceptors.push('AuthInterceptor');
     //$httpProvider.defaults.withCredentials = true;
+
+
 
     $httpProvider.defaults.useXDomain = true;
     $httpProvider.defaults.headers.common.accept = 'application/json';
     //$httpProvider.defaults.withCredentials = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+    // LOADING BAR
+    cfpLoadingBarProvider.latencyThreshold = 100;
+    cfpLoadingBarProvider.includeBar = true;
+    cfpLoadingBarProvider.includeSpinner = false;
   })
 ;
