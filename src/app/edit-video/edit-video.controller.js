@@ -1,18 +1,27 @@
 'use strict';
 
 angular.module('mewpipe')
-  .controller('EditVideoCtrl', ['$scope', 'LocalService', '$sce', '$stateParams', 'VideoService',
-    function ($scope, LocalServic, $sce, $stateParams, VideoService) {
+  .controller('EditVideoCtrl', ['$scope', 'LocalService', '$sce', '$stateParams', 'VideoService', '$state',
+    function ($scope, LocalService, $sce, $stateParams, VideoService, $state) {
 
       $scope.videoId = $stateParams.videoId;
-
+      var userId = LocalService.get('user_id');
 
       console.log($scope.videoId);
 
       VideoService.getOne($scope.videoId).success(function (data) {
         console.log(data);
+        console.log('userId', userId);
+        console.log('data.video.user.id', data.video.user.id);
+
+        if (userId != data.video.user.id) {
+          $state.go('skel.error403');
+        }
+
+
         var video = data.video;
         $scope.tags = [];
+
 
         console.log(CONFIG.api_url + video.file);
 
