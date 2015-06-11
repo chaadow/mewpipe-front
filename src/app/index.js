@@ -27,6 +27,23 @@ angular.module('mewpipe', ['ngAnimate',
     ]
   )
   .config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider) {
+
+    $httpProvider.interceptors.push('AuthInterceptor');
+    //$httpProvider.defaults.withCredentials = true;
+
+
+
+    $httpProvider.defaults.useXDomain = true;
+    $httpProvider.defaults.headers.common.accept = 'application/json';
+    //$httpProvider.defaults.withCredentials = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+    // LOADING BAR
+    cfpLoadingBarProvider.latencyThreshold = 100;
+    cfpLoadingBarProvider.includeBar = true;
+    cfpLoadingBarProvider.includeSpinner = false;
+
+
     $stateProvider
       .state('skel', {
         url: '',
@@ -49,7 +66,14 @@ angular.module('mewpipe', ['ngAnimate',
             templateUrl: 'app/login/login.html',
             controller: 'LoginCtrl'
           }
-        }
+        },
+        onEnter: ['$state', '$rootScope', function ($state, $rootScope) {
+          $rootScope.$on('$stateChangeError', function (event) {
+            console.warn('event', event);
+            console.log('biiiiitch');
+            //$state.go('root.error404');
+          });
+        }]
       })
       .state('skel.home', {
         url: '/',
@@ -95,20 +119,8 @@ angular.module('mewpipe', ['ngAnimate',
       ;
 
     $urlRouterProvider.otherwise('/');
-  $httpProvider.interceptors.push('AuthInterceptor');
-    //$httpProvider.defaults.withCredentials = true;
 
 
-
-    $httpProvider.defaults.useXDomain = true;
-    $httpProvider.defaults.headers.common.accept = 'application/json';
-    //$httpProvider.defaults.withCredentials = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
-    // LOADING BAR
-    cfpLoadingBarProvider.latencyThreshold = 100;
-    cfpLoadingBarProvider.includeBar = true;
-    cfpLoadingBarProvider.includeSpinner = false;
 
 
 

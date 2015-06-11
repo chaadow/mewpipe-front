@@ -104,6 +104,15 @@ angular.module('mewpipe')
         if (data) {
           console.log('data', data);
           voidForm();
+
+
+          swal({   title: "Your video is uploaded !",
+              type: "success",
+              showCancelButton: true,
+              confirmButtonText: "Show my video" },
+            function () {
+              $state.go('skel.video', {videoId: data.id});
+            });
         }
       });
 
