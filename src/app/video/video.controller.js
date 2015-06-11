@@ -7,12 +7,16 @@ angular.module('mewpipe')
 
       $scope.videoId = $stateParams.videoId;
       $scope.shareVideo = false;
+      var isLogged = LocalService.get('isLogged');
 
-      console.log($scope.videoId);
 
       VideoService.getOne($scope.videoId).success(function (data) {
         console.log(data);
         var video = data.video;
+
+        if (!isLogged && video.confidentiality === 'private') {
+          $state.go('skel.error403');
+        }
 
         console.log(CONFIG.api_url + video.mp4);
 
@@ -44,7 +48,13 @@ angular.module('mewpipe')
 
         console.log(CONFIG.api_url + video.poster);
 
-      });
+      })
+        .error(function (data, status, headers, config) {
+            if (status === 404) {
+              $state.go('skel.error404');
+            }
+        })
+      ;
 
       $scope.showSlug = function () {
         $scope.shareVideo = true;

@@ -7,11 +7,14 @@
       get: function () {
         return $http.get(CONFIG.api_url + 'videos/?sort[property]=created_at');
       },
-      getMostViewed: function (nbVideo) {
-        return $http.get(CONFIG.api_url + 'videos/?sort[property]=view_count&order=desc&per_page='+nbVideo);
+      getPublic: function () {
+        return $http.get(CONFIG.api_url + 'videos/?scopes[listed]=true&sort[property]=created_at');
       },
-      getBestShared: function (nbVideo) {
-        return $http.get(CONFIG.api_url + 'videos/?sort[property]=impressions_count&per_page='+nbVideo);
+      getMostViewed: function (nbVideo, confidentiality) {
+        return $http.get(CONFIG.api_url + 'videos/?scopes[' + confidentiality + ']=true&sort[property]=view_count&order=desc&per_page='+nbVideo);
+      },
+      getBestShared: function (nbVideo, confidentiality) {
+        return $http.get(CONFIG.api_url + 'videos/?scopes[' + confidentiality + ']=true&sort[property]=impressions_count&per_page='+nbVideo);
       },
       getByUser: function (userId) {
         return $http.get(CONFIG.api_url + 'videos?user_id=' + userId);

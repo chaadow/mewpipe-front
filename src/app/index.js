@@ -73,6 +73,7 @@ angular.module('mewpipe', ['ngAnimate',
             console.log('biiiiitch');
             //$state.go('root.error404');
           });
+
         }]
       })
       .state('skel.home', {
@@ -88,7 +89,13 @@ angular.module('mewpipe', ['ngAnimate',
       .state('skel.upload', {
         url: '/upload',
         templateUrl: 'app/upload/upload.html',
-        controller: 'UploadCtrl'
+        controller: 'UploadCtrl',
+        onEnter: ['$state', 'LocalService', function ($state, LocalService) {
+          var isLogged = LocalService.get('isLogged');
+          if (!isLogged) {
+            $state.go('skel.error403');
+          }
+        }]
       })
       .state('skel.search', {
         url: '/search',
@@ -98,17 +105,45 @@ angular.module('mewpipe', ['ngAnimate',
       .state('skel.editVideo', {
         url: '/edit-video/:videoId',
         templateUrl: 'app/edit-video/edit-video.html',
-        controller: 'EditVideoCtrl'
+        controller: 'EditVideoCtrl',
+        onEnter: ['$state', 'LocalService', function ($state, LocalService) {
+          var isLogged = LocalService.get('isLogged');
+          if (!isLogged) {
+            $state.go('skel.error403');
+          }
+        }]
       })
       .state('skel.pipe', {
         url: '/pipe/:userId',
         templateUrl: 'app/pipe/pipe.html',
-        controller: 'PipeCtrl'
+        controller: 'PipeCtrl',
+        onEnter: ['$state', 'LocalService', function ($state, LocalService) {
+          var isLogged = LocalService.get('isLogged');
+          if (!isLogged) {
+            $state.go('skel.error403');
+          }
+        }]
       })
       .state('skel.editUser', {
         url: '/edit-user/:userId',
         templateUrl: 'app/edit-user/edit-user.html',
-        controller: 'EditUserCtrl'
+        controller: 'EditUserCtrl',
+        onEnter: ['$state', 'LocalService', function ($state, LocalService) {
+          var isLogged = LocalService.get('isLogged');
+          if (!isLogged) {
+            $state.go('skel.error403');
+          }
+        }]
+      })
+      .state('skel.error403', {
+        url: '/403',
+        templateUrl: 'app/error/403/error403.html',
+        controller: 'Error403Ctrl'
+      })
+      .state('skel.error404', {
+        url: '/404',
+        templateUrl: 'app/error/404/error404.html',
+        controller: 'Error404Ctrl'
       })
       .state('homeOld', {
         url: '/homeold',
