@@ -48,8 +48,15 @@ angular.module('mewpipe')
       $scope.logout = function() {
 
         LocalService.clear();
+        //LocalService.set('isLogged', false);
         $scope.$parent.isLogged = false;
-        $state.go($state.current, {}, {reload: true});
+
+        if ($state.$current.name === 'skel.home') {
+          $state.go($state.current, {}, {reload: true});
+        }else {
+          $state.go('skel.home');
+        }
+
       };
 
 
@@ -81,7 +88,7 @@ angular.module('mewpipe')
 
   var voidForm = function () {
     $scope.title = undefined;
-    $scope.confidentiality = 'Public';
+    $scope.confidentiality = 'public';
     $scope.file = undefined;
   };
 
