@@ -86,7 +86,7 @@ angular.module('mewpipe')
   };
 
 
-    $scope.uploadVideo = function () {
+    $scope.fastUploadVideo = function () {
       var toSend = {
           title: $scope.title,
           user_id: $scope.userId,

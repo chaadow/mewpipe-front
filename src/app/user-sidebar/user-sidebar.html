@@ -21,7 +21,7 @@
       <div class="small-12">
         <a class="button btn-attract radius addvideo" ng-click="toggleUploadForm()" ng-class="{activ: showFastUploadForm}">Add a video</a>
 
-        <form ng-show="showFastUploadForm" novalidate="" ng-submit="uploadVideo()" name="fastUpload" id="fastUpload" ng-class="{open: showFastUploadForm}">
+        <form ng-show="showFastUploadForm" novalidate="" ng-submit="fastUploadVideo()" name="fastUpload" id="fastUpload" ng-class="{open: showFastUploadForm}">
           <div class="row">
             <div class="small-12 ">
               <input type="file"
