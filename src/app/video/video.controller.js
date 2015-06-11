@@ -64,7 +64,6 @@ angular.module('mewpipe')
         if (data) {
           $scope.videoConfig.views = data.count;
           console.log(data.count);
-          $state.go($state.current, {}, {reload: true});
 
         }
       };
