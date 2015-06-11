@@ -7,7 +7,7 @@ angular.module('mewpipe')
     $scope.myPipe = false;
     var myId = LocalService.get('user_id');
 
-    if (myId !== $scope.userId) {
+    if (myId == $scope.userId) {
       $scope.myPipe = true;
     }
 
@@ -19,6 +19,13 @@ angular.module('mewpipe')
       if (data) {
         console.log('get user :', data);
         $scope.user = data.user;
+
+        $scope.nbVideos = data.user.videos.length;
+        $scope.nbViews = 0;
+
+        _.forEach(data.user.videos, function (n, key) {
+          $scope.nbViews += data.user.videos[key].view_count;
+        });
       }
 
     });

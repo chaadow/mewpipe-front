@@ -10,21 +10,10 @@ angular.module('mewpipe')
                                 '.dv', '.ts', '.vob', '.xesc', '.mp4',
                                 '.mpeg', '.mpg','.m2v', '.ismv', '.wmv', '.mov', '.qt'];
       $scope.uploadFilename = 'Choose a video';
-
       $scope.confidentiality = 'public';
-
-
-      /*$scope.$watch('file', function () {
-        if ($scope.file && $scope.file.length) {
-          $scope.uploadFilename = $scope.file.name;
-          $scope.noFile = 0;
-          FileReader.readAsDataUrl($scope.file, $scope)
-            .then(function(result) {
-              $scope.videoUploaded = result;
-              console.log(result)
-            });
-        }
-      });*/
+      $scope.progressPercentage = 0;
+      $scope.noTitle = false;
+      $scope.noFile = false;
 
       $scope.getFile = function () {
         $scope.progressVal = 0;
@@ -48,39 +37,59 @@ angular.module('mewpipe')
         $scope.confidentiality = 'public';
         $scope.file = undefined;
         $scope.tags = undefined;
+        $scope.progressPercentage = 0;
       };
 
 
       $scope.uploadVideo = function () {
-        console.log($scope.tags);
 
-        var tagsList = _.pluck($scope.tags, "text");
-            tagsList = tagsList.join(', ');
+        if (!$scope.file) {
+          $scope.noFile = true;
+        }
+        else if (!$scope.title) {
+          $scope.noTitle = true;
+        }
+        else {
 
+          var tagsList = _.pluck($scope.tags, "text");
+          tagsList = tagsList.join(', ');
 
-        var toSend = {
-          title: $scope.title,
-          description: $scope.description,
-          user_id: userId,
-          confidentiality: $scope.confidentiality,
-          tag_list: tagsList
-        };
+          var toSend = {
+            title: $scope.title,
+            description: $scope.description,
+            user_id: userId,
+            confidentiality: $scope.confidentiality,
+            tag_list: tagsList
+          };
 
-        console.log(toSend);
+          console.log(toSend);
 
-        VideoService.set(toSend, $scope.file, function (err, data) {
-          if (err) {
-            console.log(err);
-          }
+          var progressBarCallback = function (data) {
+            $scope.progressPercentage = data;
+          };
 
-          if (data) {
-            console.log(data);
-            voidForm();
-          }
+          VideoService.set(toSend, $scope.file, function (err, data) {
+            if (err) {
+              console.log(err);
+            }
 
-          });
+            if (data) {
+              console.log(data);
 
+              voidForm();
+
+              swal({   title: "Your video is uploaded !",
+                  type: "success",
+                  showCancelButton: true,
+                  confirmButtonText: "Show my video" },
+                function () {
+                  $state.go('skel.video', {videoId: data.id});
+                });
+            }
+
+          }, progressBarCallback);
+
+        }
       }
-
     }
   ]);

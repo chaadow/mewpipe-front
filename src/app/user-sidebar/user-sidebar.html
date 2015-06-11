@@ -11,10 +11,10 @@
   </div>
   <div class="row text-center userstats">
       <div class="small-6 columns">
-        <i class="fi-eye"></i> 211
+        <i class="fi-eye"></i> {{nbViews}}
       </div>
       <div class="small-6 columns">
-        <i class="fi-video"></i> 5
+        <i class="fi-video"></i> {{nbVideos}}
       </div>
   </div>
   <div class="row">
@@ -59,7 +59,7 @@
   </div>
   <div class="row">
       <div class="small-12 columns user-settings">
-        <i class="fi-widget"><a href="#">Account settings</a></i>
+        <i class="fi-widget"><a ui-sref="skel.editUser({userId: userId})">Account settings</a></i>
         <i class="fi-arrow-right"><a href="#" ng-click="logout()">Log out</a></i>
 
       </div>

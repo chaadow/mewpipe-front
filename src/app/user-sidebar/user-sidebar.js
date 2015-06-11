@@ -2,16 +2,39 @@
 
 angular.module('mewpipe')
   .controller('UserSidebarCtrl', ['$scope', 'FileReader', 'LocalService', 'VideoService',
-    '$state',
-    function ($scope, FileReader, LocalService, VideoService, $state) {
+    '$state', 'UserService',
+    function ($scope, FileReader, LocalService, VideoService, $state, UserService) {
     $scope.userId = LocalService.get('user_id');
-      $scope.avatar = CONFIG.api_url + LocalService.get('user_avatar');
-      $scope.firstname = LocalService.get('user_firstname');
-      $scope.lastname = LocalService.get('user_lastname');
+
 
       $scope.confidentiality = 'public';
 
       $scope.showFastUploadForm = false;
+
+
+      UserService.getOne($scope.userId, function (err, data) {
+        if (err) {
+          console.log('get user err:', err);
+        }
+
+        if (data) {
+          console.log('get user :', data);
+          $scope.user = data.user;
+
+          $scope.avatar = CONFIG.api_url + data.user.avatar;
+          $scope.firstname = data.user.firstname;
+          $scope.lastname = data.user.lastname;
+
+          $scope.nbVideos = data.user.videos.length;
+          $scope.nbViews = 0;
+
+          _.forEach(data.user.videos, function (n, key) {
+            $scope.nbViews += data.user.videos[key].view_count;
+          });
+
+        }
+
+      });
 
       $scope.toggleUploadForm = function () {
         if ( !$scope.showFastUploadForm ) {

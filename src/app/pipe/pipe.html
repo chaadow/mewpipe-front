@@ -18,15 +18,16 @@
 
     <div class="text-center userstats">
       <div class="small-6 columns text-right">
-        <i class="fi-eye"></i> 211
+        <i class="fi-eye"></i> {{nbViews}}
       </div>
       <div class="small-6 columns text-left">
-        <i class="fi-video"></i> 5
+        <i class="fi-video"></i> {{nbVideos}}
       </div>
+      <a ng-show="myPipe" class="button secondary" ui-sref="skel.editUser({userId: user.id})">Edit my profile</a>
     </div>
   </div>
-<a ng-show="myPipe" ui-sref="skel.editUser({userId: user.id})">Edit my profile</a>
 </div>
+
 <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
   <li ui-sref="skel.editVideo" class="video-item" ng-repeat="video in user.videos">
     <div class="th">

@@ -2,7 +2,7 @@
 
 angular.module('mewpipe')
   .controller('SkelCtrl', function ($scope, LocalService, VideoService) {
-
+    //swal({   title: "Error!",   text: "Here's my error message!",   type: "error",   confirmButtonText: "Cool" });
 
     $scope.sidebarState = 'login';
 
@@ -41,32 +41,10 @@ angular.module('mewpipe')
       $scope.mostVieweds = data.videos;
     });
 
-  /*  $scope.mostVieweds= [
-      {
-        'title': 'Titre de la video',
-        'url': 'skel.video',
-        'creator': "User's name",
-        'thumbnail': 'default3.jpg',
-        'numbviews': 124,
-        'pourcent': 100
-      },
-      {
-        'title': 'Titre de la video',
-        'url': 'skel.video',
-        'creator': "User's name",
-        'thumbnail': 'default2.jpg',
-        'numbviews': 95,
-        'pourcent': 77
-      },
-      {
-        'title': 'Titre de la video',
-        'url': 'skel.videoo',
-        'creator': "User's name",
-        'thumbnail': 'default4.jpg',
-        'numbviews': 60,
-        'pourcent': 48
-      }
-    ];*/
+    VideoService.getBestShared(3).success(function (data) {
+      console.log('mostshared ', data);
+      $scope.topRateds = data.videos;
+    });
 
     $scope.topRateds= [
       {

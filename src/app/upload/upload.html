@@ -18,6 +18,8 @@
                      ng-required="true"
                      ngf-max-size='500000000'
                      placeholder="Vidéo*">
+              <div ng-show="noFile && !file" class="mewpipe-error">A video is required</div>
+
             </div>
             <div class="small-12 medium-5 columns">
               <div class="row">
@@ -44,6 +46,7 @@
             </div>
             <div class="small-10 columns">
               <input type="text" id="right-label" placeholder="Shorter is better !" ng-model="title" ng-required="true">
+              <div ng-show="noTitle && !title" class="mewpipe-error">Title is required</div>
             </div>
           </div>
         </div>
@@ -55,7 +58,7 @@
               <label for="right-label" class="right inline">Description</label>
             </div>
             <div class="small-10 columns">
-              <textarea name="vid_description" rows="5" placeholder="Describe your video"  ng-model="description" ng-required="fale"></textarea>
+              <textarea name="vid_description" rows="5" placeholder="Describe your video"  ng-model="description" ></textarea>
             </div>
           </div>
         </div>
@@ -98,6 +101,13 @@
       <div class="row">
         <div class="small-12 columns">
           <button type="submit" class="btn-attract">Upload !</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="progress">
+            <span class="meter" ng-style="{'width': progressPercentage + '%'}"></span>
+          </div>
         </div>
       </div>
     </form>

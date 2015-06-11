@@ -272,6 +272,13 @@ h1,h2,h3,h4,h5,p,span,a {
     color: $attractColor;
   }
 }
+
+.sweet-alert  {
+  .confirm {
+    background-color: $attractColor !important;
+  }
+
+}
 /*****/
 
 /*** Text **/
@@ -312,3 +319,10 @@ tags-input .tags .tag-item .remove-button {
 #loading-bar .bar {
   background: $attractColor;
 }
+
+
+/***** Error messages *****/
+.mewpipe-error {
+  color: red;
+}
+/***************************/

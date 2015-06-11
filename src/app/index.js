@@ -21,7 +21,8 @@ angular.module('mewpipe', ['ngAnimate',
     "common.services.user",
     "common.services.auth",
     "common.interceptors.auth",
-    "common.interceptors.http"
+    "common.interceptors.http",
+    "common.directives.selectOnClick"
 
     ]
   )

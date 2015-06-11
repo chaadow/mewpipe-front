@@ -28,19 +28,9 @@ angular.module('mewpipe')
         })
         .error(function (data, err) {
 
-          if(err === 403) {
-
-
-            if(data.error === 'Invalid email or password') {
-
-
-            }
-            if(data.error === 'user not found') {
-
-
-
-            }
-
+          console.log(data.error);
+          if(err) {
+            swal({   title: "Error!",   text: data.error,   type: "error"});
           }
 
         });

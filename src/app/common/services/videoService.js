@@ -4,17 +4,14 @@
 
   function videoService($http, Upload) {
     return {
-      get: function (companyId) {
-        return $http.get(CONFIG.api_url + 'videos');
-      },
-      getLastPosted: function (nbItemsToLoad, companyId) {
-        return $http.get(CONFIG.api_url + 'videos/getLastPostedItems?limit=' + nbItemsToLoad + '&company_id=' +  companyId);
+      get: function () {
+        return $http.get(CONFIG.api_url + 'videos/?sort[property]=created_at');
       },
       getMostViewed: function (nbVideo) {
-        return $http.get(CONFIG.api_url + 'videos/?property=view_count&order=desc&per_page='+nbVideo);
+        return $http.get(CONFIG.api_url + 'videos/?sort[property]=view_count&order=desc&per_page='+nbVideo);
       },
-      getBestRanked: function (nbItemsToLoad, companyId) {
-        return $http.get(CONFIG.api_url + 'videos/getBestRankedItems?limit=' + nbItemsToLoad + '&company_id=' +  companyId);
+      getBestShared: function (nbVideo) {
+        return $http.get(CONFIG.api_url + 'videos/?sort[property]=impressions_count&per_page='+nbVideo);
       },
       getByUser: function (userId) {
         return $http.get(CONFIG.api_url + 'videos?user_id=' + userId);
@@ -31,7 +28,7 @@
       getByTags: function (companyId, tag) {
         return $http.get(CONFIG.api_url + 'items/getItemsByTags?company_id=' + companyId + '&tag=' + tag);
       },
-      set: function(toSend, videoFile, callback) {
+      set: function(toSend, videoFile, callback, progressCallback) {
 
 
         var videoUpload = Upload.upload({
@@ -42,14 +39,12 @@
         })
           .progress(function (evt) {
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            //callback(progressPercentage);
+            progressCallback(progressPercentage);
             console.log('progress: ' + progressPercentage + '% ' +
             evt.config.file.name);
           }).success(function (data, status, headers, config) {
             console.log('file ' + config.file.name + 'uploaded. Response: ' +
             JSON.stringify(data));
-
-            //callbackResult(data, null);
           });
 
         videoUpload.success(function(data, status, headers, config) {
@@ -70,7 +65,7 @@
           callback(null, data);
         })
           .error(function(data, error) {
-            callback(data, null);
+            callback(error, null);
           });
       },
       //TODO
