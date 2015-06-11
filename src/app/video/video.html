@@ -30,25 +30,27 @@
     <h3>{{videoConfig.title}}</h3>
   </div>
   <div class="small-3 columns">
-      <div class="small-12 text-right">{{videoConfig.shares}} shares</div>
-      <div class="small-12 text-right">{{videoConfig.views}} views</div>
-      <div class="small-12 text-right social-share">
-        <!--<i class="fi-social-facebook text-attract"></i>-->
-        <i ng-click="showSlug()" class="fi-link text-attract"></i>
-        <!--<i class="fi-social-twitter text-attract"></i>-->
-      </div>
+      <div class="small-12 medium-6 columns text-center right single-vid-stat">{{videoConfig.shares}} <i class="fi-link"></i></div>
+      <div class="small-12 medium-6 columns text-center right single-vid-stat">{{videoConfig.views}} <i class="fi-eye"></i></div>
   </div>
-
 </section>
 <div class="row">
-  <div class="small-12 ">
-   Share: <input  class="text" ng-model="slug" select-on-click>
+  <div class="small-12 medium-7 columns">
+    <span class="text-iron">John Doe</span>
+  </div>
+    <div class="small-12 medium-5 columns text-right ">
+      <div class="small-6 medium-3 social-share columns right">
+        <i ng-click="showSlug()" class="fi-link text-attract"></i>
+        <i class="fi-social-facebook text-attract"></i>
+        <i class="fi-social-twitter text-attract"></i>
+      </div>
+    <div class="small-6 medium-9 columns right linktoshare">
+      Link to share: <input  class="text" ng-model="slug" select-on-click>
+    </div>
   </div>
 </div>
 <div class="row">
-  <div class="small-12 columns">
-    <span class="text-iron">John Doe</span>
-  </div>
+
 </div> <br>
 <div class="row">
   <div class="small-12 columns">

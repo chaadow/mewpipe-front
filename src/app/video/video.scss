@@ -1,3 +1,27 @@
+h3 {
+  font-size: 2em;
+}
+
 .social-share i{
   font-size: 2rem;
+    padding-left: 5px;
+}
+
+.single-vid-stat {
+  background: $attractColor;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 5px 0;
+  width: 45%;
+  color: white;
+  font-size: 1.25rem;
+  margin-left: 0.1em;
+}
+
+
+.linktoshare {
+  line-height: 3em;
+    input {
+     line-height: rem-calc(25);
+    }
 }

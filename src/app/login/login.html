@@ -1,13 +1,19 @@
+<div class="row text-center login-container">
+<i class="fi-torso"></i>
+<h1>Sign in !</h1>
+<p>You already have an account ? Please fill this formular your login and password.</p>
+
 <form novalidate="" ng-submit="submit()">
   <div class="row">
-    <div class="large-8 columns">
-      <label>Email
-        <input type="email" ng-model="email">
-      </label>
-      <label>Password
-        <input type="password" ng-model="password">
-      </label>
+    <div class="small-12">
+        <input type="email" ng-model="email" placeholder="your@mail">
+        <input type="password" ng-model="password" placeholder="password">
     </div>
     <button type="submit">login</button>
   </div>
 </form>
+
+<p>You don't have an account ? Hury up and go create one !</p>
+
+<button class="">Create an account</button>
+</div>
