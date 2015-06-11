@@ -6,9 +6,7 @@ angular.module('mewpipe')
     function ($scope, LocalService, UserService, $stateParams, FileReader, $state) {
 
     $scope.apiUrl = CONFIG.api_url;
-    $scope.userId = $stateParams.userId;
-
-
+    $scope.userId = LocalService.get('user_id');
 
       UserService.getOne($scope.userId, function (err, data) {
         if (err) {

@@ -66,15 +66,7 @@ angular.module('mewpipe', ['ngAnimate',
             templateUrl: 'app/login/login.html',
             controller: 'LoginCtrl'
           }
-        },
-        onEnter: ['$state', '$rootScope', function ($state, $rootScope) {
-          $rootScope.$on('$stateChangeError', function (event) {
-            console.warn('event', event);
-            console.log('biiiiitch');
-            //$state.go('root.error404');
-          });
-
-        }]
+        }
       })
       .state('skel.home', {
         url: '/',
@@ -103,7 +95,7 @@ angular.module('mewpipe', ['ngAnimate',
         controller: 'SearchCtrl'
       })
       .state('skel.editVideo', {
-        url: '/edit-video/:videoId',
+        url: '/edit-video',
         templateUrl: 'app/edit-video/edit-video.html',
         controller: 'EditVideoCtrl',
         onEnter: ['$state', 'LocalService', function ($state, LocalService) {
