@@ -22,7 +22,8 @@ angular.module('mewpipe', ['ngAnimate',
     "common.services.auth",
     "common.interceptors.auth",
     "common.interceptors.http",
-    "common.directives.selectOnClick"
+    "common.directives.selectOnClick",
+    "common.filters.capitalize"
 
     ]
   )
