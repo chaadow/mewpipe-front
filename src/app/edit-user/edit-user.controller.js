@@ -43,8 +43,7 @@ angular.module('mewpipe')
           password: $scope.user.password,
           firstname: $scope.user.firstname,
           lastname: $scope.user.lastname,
-          id: $scope.userId,
-          username: $scope.user.username
+          id: $scope.userId
         };
 
         var file = {};
@@ -66,6 +65,8 @@ angular.module('mewpipe')
             if (data) {
               console.log('updata user: ', data);
               $scope.user = data.user;
+
+              $scope.$parent.isLogged = true;
 
               swal({
                 title: "Your account is updated !",

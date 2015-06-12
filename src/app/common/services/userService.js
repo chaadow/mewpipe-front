@@ -72,12 +72,10 @@
 
 				user.
 					success(function (data) {
-						res = data;
 						callback(null, data);
 					})
 					.error(function (err, data) {
-						res = {err: err, data: data};
-						callback(data, null);
+						callback(err, null);
 					});
 
 			}

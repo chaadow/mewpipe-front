@@ -43,11 +43,9 @@ angular.module('mewpipe')
     console.log($scope.$parent.isLogged);
 
       $scope.$parent.$watch('isLogged', function (val) {
-        console.log(val);
-        if (val) {
-          console.log('tamere');
-          getOneUser();
-        }
+        $scope.userId = LocalService.get('user_id');
+        getOneUser();
+
       });
 
       $scope.toggleUploadForm = function () {

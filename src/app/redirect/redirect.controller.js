@@ -43,7 +43,13 @@ angular.module('mewpipe')
               LocalService.set('isLogged', true);
               LocalService.set('admin', result.user.admin);
               $scope.$parent.isLogged = true;
-             // window.location ='http://localhost:3000/#/';
+              $state.go('skel.pipe', {userId: userId});
+
+              swal({   title: "Authentication succesfull !",
+                type: 'success',
+                timer: 2000,
+                showConfirmButton: false });
+
             }
 
 
