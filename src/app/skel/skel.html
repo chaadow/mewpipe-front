@@ -71,7 +71,14 @@
         </div>
       </div>
 
-      <button  ng-click="connectGenomeSpace()" class="button secondary">Connect with GenomeSpace</button>
+      <FORM action="http://api.mewpipe.com:5000/login" method="post">
+          <INPUT type="hidden" name="identity_url" value="https://identity.genomespace.org/identityServer/xrd.jsp"><BR>
+          <!--<INPUT class="button secondary" type="submit" value="Connect with GenomeSpace">-->
+        <button type="submit" class="button secondary">Connect with GenomeSpace</button>
+        </P>
+      </FORM>
+
+      <!--<button  ng-click="connectGenomeSpace()" class="button secondary">Connect with GenomeSpace</button>-->
       <button  ng-click="" class="button alert">Connect with Google</button>
     </div>
   </div>

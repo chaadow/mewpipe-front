@@ -34,7 +34,7 @@ angular.module('mewpipe', ['ngAnimate',
 
     $httpProvider.defaults.useXDomain = true;
     $httpProvider.defaults.headers.common.accept = 'application/json';
-    //$httpProvider.defaults.withCredentials = true;
+    $httpProvider.defaults.withCredentials = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
     // LOADING BAR
