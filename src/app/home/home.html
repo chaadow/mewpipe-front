@@ -6,7 +6,7 @@
         </a>
         <div class="caption">
           <h3>{{latestUploadVideo.title}}</h3>
-          <p>{{latestUploadVideo.user_id}}</p>
+          <p>{{latestUploadVideo.user.username | capitalize}}</p>
           <a class="GoToPlay" ui-sref="skel.video({videoId: latestUploadVideo.id})">Play !</a>
         </div>
       </div>

@@ -13,6 +13,7 @@
 					LocalService.set('user_firstname', result.session.firstname);
 					LocalService.set('user_lastname', result.session.lastname);
           LocalService.set('user_avatar', result.session.avatar);
+          LocalService.set('user_username', result.session.username);
           LocalService.set('mewpipe_token', result.session.token);
           LocalService.set('isLogged', true);
           LocalService.set('admin', result.session.admin);

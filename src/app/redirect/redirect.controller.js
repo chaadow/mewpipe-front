@@ -24,6 +24,7 @@ angular.module('mewpipe')
             LocalService.set('user_firstname', result.user.firstname);
             LocalService.set('user_lastname', result.user.lastname);
             LocalService.set('user_avatar', result.user.avatar);
+            LocalService.set('user_username', result.user.username);
             LocalService.set('mewpipe_token', userToken);
             LocalService.set('isLogged', true);
             LocalService.set('admin', result.user.admin);

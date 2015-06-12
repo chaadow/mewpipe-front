@@ -58,7 +58,7 @@
 					callback(null, data);
 				})
 					.error(function(data, error) {
-						callback(error, null);
+						callback(data, null);
 					});
 
 			},

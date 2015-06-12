@@ -37,12 +37,14 @@ angular.module('mewpipe')
 
 
       $scope.editUser = function () {
+        console.log($scope.user.username);
         var toSend = {
-          email: $scope.email,
-          password: $scope.password,
-          firstname: $scope.firstname,
-          lastname: $scope.lastname,
-          id: $scope.userId
+          email: $scope.user.email,
+          password: $scope.user.password,
+          firstname: $scope.user.firstname,
+          lastname: $scope.user.lastname,
+          id: $scope.userId,
+          username: $scope.user.username
         };
 
         var file = {};

@@ -24,7 +24,8 @@ angular.module('mewpipe')
         email: $scope.email,
         password: $scope.password,
         firstname: $scope.firstname,
-        lastname: $scope.lastname
+        lastname: $scope.lastname,
+        username: $scope.username
       };
 
 
