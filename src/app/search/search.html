@@ -5,24 +5,23 @@
         <input type="text" placeholder="Find a video by Title, Tags or Author !">
       </div>
       <div class="small-2 columns">
-        <a href="#" class="button postfix">Search !</a>
+        <a href="#" class="button postfix btn-attract">Search !</a>
     </div>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="small-12 columns" >
-    <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-      <li class="video-item" ng-repeat="defaultVideoFlow in defaultVideoFlows">
+  <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+    <li class="video-item" ng-repeat="defaultVideoFlow in defaultVideoFlows">
+      <div class="th">
         <a ui-sref="{{defaultVideoFlow.url}}">
           <img class="right" ng-src="assets/images/videothumb/{{defaultVideoFlow.thumbnail}}" alt="{{defaultVideoFlow.title}}">
         </a>
-        <div class="cartouche">
+        <div class="caption">
           <h3>{{defaultVideoFlow.title}}</h3>
           <p>{{defaultVideoFlow.creator}}</p>
           <a class="GoToPlay" ui-sref="{{defaultVideoFlow.url}}">Play !</a>
         </div>
-      </li>
-    </ul>
-  </div>
-</div>
+      </div>
+    </li>
+  </ul>
+

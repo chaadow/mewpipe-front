@@ -21,44 +21,48 @@
 
   <div class="row">
     <div class="small-12">
-      <input type="email" placeholder="email" ng-model="user.email" class=""  ng-required="true">
+      <div class="small-2 columns">
+        <label class="right inline">Email</label>
+      </div>
+      <div class="small-10 columns">
+        <input type="email" placeholder="email" ng-model="user.email" class=""  ng-required="true">
+      </div>
     </div>
   </div>
   <div class="row">
     <div class="small-12">
-      <input type="username" placeholder="username" ng-model="user.username" ng-minlength="3" class=""  ng-required="true">
+      <div class="small-2 columns">
+        <label class="right inline">Password</label>
+      </div>
+      <div class="small-5 columns">
+        <input type="password" placeholder="password" ng-model="user.password" class="" ng-minlength="8" ng-required="true">
+      </div>
+      <div class="small-5 columns">
+        <input type="password" placeholder="repeat password*"  class="" ng-minlength="6" ng-required="true">
+      </div>
+
     </div>
   </div>
   <div class="row">
     <div class="small-12">
-      <input type="password" placeholder="password" ng-model="user.password" class="" ng-minlength="8" ng-required="true">
+      <div class="small-2 columns">
+        <label class="right inline">Name</label>
+      </div>
+      <div class="small-5 columns">
+        <input type="text" placeholder="firstname" ng-model="user.firstname" class="" >
+      </div>
+      <div class="small-5 columns">
+        <input type="text" placeholder="lastname" ng-model="user.lastname" class="" ng-required="">
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="small-12">
-      <input type="password" placeholder="repeat password*"  class="" ng-minlength="6" ng-required="true">
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-12">
-      <input type="text" placeholder="firstname" ng-model="user.firstname" class="" >
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-12">
-      <input type="text" placeholder="lastname" ng-model="user.lastname" class="">
-    </div>
-  </div>
-  <div class="row">
-    <div class="small-12">
+    <div class="small-12 medium-4 columns">
       <button class="button btn-attract radius"  type="submit">Edit</button>
     </div>
-  </div>
-  <div class="row">
-    <div class="small-12">
-      <button class="button btn-attract radius" ng-click="deleteUser()">Delete my account</button>
+    <div class="small-12 medium-2 columns floa">
+      <button class="button alert radius" ng-click="deleteUser()">Delete my account</button>
     </div>
   </div>
 
 </form>
-</div>

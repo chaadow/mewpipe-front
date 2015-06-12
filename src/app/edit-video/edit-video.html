@@ -64,17 +64,22 @@
         </div>
       </div>
       <div class="row">
-        <div class="small-12 columns">
-          <select ng-model="confidentiality" ng-required="true">
-            <option value="public" selected>Public</option>
-            <option value="privateLink">PrivateLink</option>
-            <option value="private">Private</option>
-          </select>
+        <div class="small-12">
+          <div class="small-2 columns">
+            <label for="right-label" class="right inline">Status</label>
+          </div>
+          <div class="small-10 columns">
+            <select ng-model="confidentiality" ng-required="true">
+              <option value="public" selected>Public</option>
+              <option value="privateLink">PrivateLink</option>
+              <option value="private">Private</option>
+            </select>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="small-12 columns">
-          <button type="submit">Edit !</button>
+          <button type="submit" class="btn-attract">Edit !</button>
         </div>
       </div>
     </form>

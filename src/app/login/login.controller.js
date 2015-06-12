@@ -36,4 +36,19 @@ angular.module('mewpipe')
         });
     };
 
+      $scope.connectGenomeSpace = function () {
+        var toSend = {
+          identity_url: 'https://identity.genomespace.org/identityServer/xrd.jsp'
+        };
+
+        AuthService.login(toSend).success(function (data) {
+          console.log('genome', data);
+        }).error(function (data, status, headers, config) {
+          console.log(data);
+          console.log(status);
+          console.log(headers);
+          console.log(config);
+        });
+      };
+
   }]);
