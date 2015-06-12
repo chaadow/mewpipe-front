@@ -90,7 +90,7 @@ angular.module('mewpipe', ['ngAnimate',
         }]
       })
       .state('skel.search', {
-        url: '/search',
+        url: '/search/:tag',
         templateUrl: 'app/search/search.html',
         controller: 'SearchCtrl'
       })

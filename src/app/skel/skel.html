@@ -70,34 +70,25 @@
           <button class="button" ng-switch-when="login" ng-click="goToLogin()" class="btn-attract">Signup</button>
         </div>
 
+        <div ng-if="sidebarState == 'login'">
+          <FORM action="http://api.mewpipe.com:5000/login" method="post">
+            <INPUT type="hidden" name="identity_url" value="https://yahoo.com/"><BR>
+            <button type="submit" class="button info">Yahoo connect</button>
+          </FORM>
+          <FORM action="http://api.mewpipe.com:5000/login" method="post">
+            <INPUT type="hidden" name="identity_url" value="https://openid.aol.com/"><BR>
+            <button type="submit" class="button secondary">AOL connect</button>
+          </FORM>
+          <FORM action="http://api.mewpipe.com:5000/login" method="post">
+            <INPUT type="hidden" name="identity_url" value="https://identity.genomespace.org/identityServer/xrd.jsp"><BR>
+            <button type="submit" class="button success">GenomeSpace connect</button>
+          </FORM>
 
+        </div>
 
-        <FORM action="http://api.mewpipe.com:5000/login" method="post">
-          <INPUT type="hidden" name="identity_url" value="https://google.com/identity/sign-in/"><BR>
-          <button type="submit" class="button alert">Connect with Google</button>
-          </P>
-        </FORM>
-
-        <FORM action="http://api.mewpipe.com:5000/login" method="post">
-          <INPUT type="hidden" name="identity_url" value="https://yahoo.com/"><BR>
-          <button type="submit" class="button">Connect with Yahoo</button>
-          </P>
-        </FORM>
-
-        <FORM action="http://api.mewpipe.com:5000/login" method="post">
-          <INPUT type="hidden" name="identity_url" value="https://openid.aol.com/"><BR>
-          <button type="submit" class="button secondary">Connect with AOL</button>
-          </P>
-        </FORM>
-
-        <FORM action="http://api.mewpipe.com:5000/login" method="post">
-          <INPUT type="hidden" name="identity_url" value="https://identity.genomespace.org/identityServer/xrd.jsp"><BR>
-          <button type="submit" class="button success">Connect with GenomeSpace</button>
-          </P>
-        </FORM>
       </div>
 
-
+      </div>
 
 
     </div>

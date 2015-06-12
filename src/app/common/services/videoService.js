@@ -28,8 +28,8 @@
 
         return item;
       },
-      getByTags: function (companyId, tag) {
-        return $http.get(CONFIG.api_url + 'items/getItemsByTags?company_id=' + companyId + '&tag=' + tag);
+      getByTags: function (tag) {
+        return $http.get(CONFIG.api_url + 'videos?tag_list='+tag);
       },
       set: function(toSend, videoFile, callback, progressCallback) {
 

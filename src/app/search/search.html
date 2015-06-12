@@ -1,27 +1,30 @@
-<div class="row">
-  <div class="large-12 columns">
-    <div class="row collapse">
-      <div class="small-10 columns">
-        <input type="text" placeholder="Find a video by Title, Tags or Author !">
+<form name="searchForm" novalidate="" ng-submit="search()">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-10 columns">
+          <input type="text" ng-model="tags" placeholder="Find a video by Tags">
+        </div>
+        <div class="small-2 columns">
+          <a href="#" class="button postfix btn-attract">Search !</a>
       </div>
-      <div class="small-2 columns">
-        <a href="#" class="button postfix btn-attract">Search !</a>
-    </div>
+      </div>
     </div>
   </div>
-</div>
   <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
-    <li class="video-item" ng-repeat="defaultVideoFlow in defaultVideoFlows">
+    <li class="video-item" ng-repeat="latestUploadVideo in videos">
       <div class="th">
-        <a ui-sref="{{defaultVideoFlow.url}}">
-          <img class="right" ng-src="assets/images/videothumb/{{defaultVideoFlow.thumbnail}}" alt="{{defaultVideoFlow.title}}">
+        <a ui-sref="skel.video({videoId: latestUploadVideo.id})">
+          <img class="right" ng-src="{{apiUrl}}{{latestUploadVideo.thumb}}" alt="{{latestUploadVideo.title}}">
         </a>
         <div class="caption">
-          <h3>{{defaultVideoFlow.title}}</h3>
-          <p>{{defaultVideoFlow.creator}}</p>
-          <a class="GoToPlay" ui-sref="{{defaultVideoFlow.url}}">Play !</a>
+          <h3>{{latestUploadVideo.title}}</h3>
+          <p>{{latestUploadVideo.user.username | capitalize}}</p>
+          <a class="GoToPlay" ui-sref="skel.video({videoId: latestUploadVideo.id})">Play !</a>
         </div>
       </div>
     </li>
   </ul>
 
+  <h1 ng-if="videos.length == 0">No videos</h1>
+</form>

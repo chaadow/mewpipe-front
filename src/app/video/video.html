@@ -59,7 +59,7 @@
 </div>
 <div class="row">
   <div class="small-12 columns">
-  Tags : <span ng-repeat="tag in videoConfig.tags" class="text-attract">{{tag}}, </span>
+  Tags : <span ng-repeat="tag in videoConfig.tags"  ui-sref="skel.search({tag: tag})" class="text-attract pointer">{{tag}},  </span>
   </div>
 </div>
 <br>

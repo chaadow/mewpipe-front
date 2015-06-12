@@ -1,59 +1,24 @@
 'use strict';
 
 angular.module('mewpipe')
-  .controller('SearchCtrl', ['$scope', 'LocalService',
-    function ($scope, LocalService) {
+  .controller('SearchCtrl', ['$scope', 'LocalService', 'VideoService', '$stateParams',
+    function ($scope, LocalService, VideoService, $stateParams) {
+      $scope.videos = [];
+      $scope.apiUrl = CONFIG.api_url;
 
-    $scope.defaultVideoFlows = [
-      {
-        'title': 'The coal-mining town of Bulli',
-        'url': 'skel.video',
-        'creator': "User's name",
-        'thumbnail': 'default1.jpg'
-      },
-      {
-        'title': 'Orson Welles’ 1973 masterpiece, F for Fake',
-        'url': 'skel.video',
-        'creator': "User's name",
-        'thumbnail': 'default2.jpg'
-      },
-      {
-        'title': 'Portrait of a dog walker',
-        'url': 'skel.videoo',
-        'creator': "User's name",
-        'thumbnail': 'default3.jpg'
-      },
-      {
-        'title': 'La petite maison (2004)',
-        'url': 'skel.video',
-        'creator': "User's name",
-        'thumbnail': 'default4.jpg'
-      },
-      {
-        'title': 'The coal-mining town of Bulli',
-        'url': 'skel.video',
-        'creator': "User's name",
-        'thumbnail': 'default1.jpg'
-      },
-      {
-        'title': 'Orson Welles’ 1973 masterpiece, F for Fake',
-        'url': 'skel.video',
-        'creator': "User's name",
-        'thumbnail': 'default2.jpg'
-      },
-      {
-        'title': 'Portrait of a dog walker',
-        'url': 'skel.videoo',
-        'creator': "User's name",
-        'thumbnail': 'default3.jpg'
-      },
-      {
-        'title': 'La petite maison (2004)',
-        'url': 'skel.video',
-        'creator': "User's name",
-        'thumbnail': 'default4.jpg'
+
+      $scope.search = function () {
+        VideoService.getByTags($scope.tags).success(function (data) {
+          $scope.videos = data.videos;
+        });
+      };
+
+      if ($stateParams.tag) {
+        $scope.tags = $stateParams.tag;
+        $scope.search();
+
       }
-    ];
+
 
 
   }]);
