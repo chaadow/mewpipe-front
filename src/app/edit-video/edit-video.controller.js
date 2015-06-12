@@ -46,6 +46,7 @@ angular.module('mewpipe')
           }
         };
 
+
         $scope.title = videoConfig.title;
         $scope.description = videoConfig.description;
         $scope.confidentiality = video.confidentiality;

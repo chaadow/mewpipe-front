@@ -3,7 +3,7 @@
 angular.module('mewpipe')
   .controller('EditUserCtrl', ['$scope', 'LocalService', 'UserService',
     '$stateParams', 'FileReader', 'AuthService', '$state',
-    function ($scope, LocalService, UserService, $stateParams, FileReader, $state) {
+    function ($scope, LocalService, UserService, $stateParams, FileReader, AuthService, $state) {
 
     $scope.apiUrl = CONFIG.api_url;
     $scope.userId = LocalService.get('user_id');
@@ -68,9 +68,30 @@ angular.module('mewpipe')
         });
       };
 
-      $scope.deleteVideo = function () {
-          LocalService.clear();
-          $state.go('skell.home');
+
+
+      $scope.deleteUser = function () {
+
+        swal({   title: "Are you sure?",
+            text: "You will not be able to recover you account!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, delete it!",
+            closeOnConfirm: false },
+          function () {
+
+            UserService.destroy($scope.userId).success(function () {
+              LocalService.clear();
+              $scope.$parent.isLogged = false;
+              $state.go('skel.home');
+              swal("Deleted!", "Your Account has been deleted.", "success");
+
+            });
+          });
+
+
+
       }
 
   }]);

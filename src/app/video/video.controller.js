@@ -8,6 +8,7 @@ angular.module('mewpipe')
       $scope.videoId = $stateParams.videoId;
       $scope.shareVideo = false;
       var isLogged = LocalService.get('isLogged');
+      $scope.apiUrl = CONFIG.api_url;
 
 
       VideoService.getOne($scope.videoId).success(function (data) {
@@ -41,9 +42,13 @@ angular.module('mewpipe')
           },
           tags: video.tag_list,
           views: video.view_count,
-          shares: video.page_views
+          shares: video.page_views,
+          user: video.user,
+          id: video.id
         };
 
+        console.log(video.id);
+        console.log( $scope.apiUrl + video.user.avatar);
         $scope.slug = 'http://localhost:3000/#/video/' + video.slug;
 
         console.log(CONFIG.api_url + video.poster);

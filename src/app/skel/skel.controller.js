@@ -4,9 +4,9 @@ angular.module('mewpipe')
   .controller('SkelCtrl', function ($scope, LocalService, VideoService, $state) {
 
     $scope.sidebarState = 'login';
-    var isLogged = LocalService.get('isLogged');
+    $scope.isLogged = LocalService.get('isLogged');
 
-    if (!isLogged) {
+    if (!$scope.isLogged) {
       VideoService.getMostViewed(3, 'listed').success(function (data) {
         console.log('mostviewed', data);
         $scope.mostVieweds = data.videos;
@@ -29,7 +29,6 @@ angular.module('mewpipe')
     }
 
 
-    $scope.isLogged = LocalService.get('isLogged');
     $scope.apiUrl = CONFIG.api_url;
 
 

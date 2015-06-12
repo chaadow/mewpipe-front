@@ -95,7 +95,7 @@ angular.module('mewpipe', ['ngAnimate',
         controller: 'SearchCtrl'
       })
       .state('skel.editVideo', {
-        url: '/edit-video',
+        url: '/edit-video/:videoId',
         templateUrl: 'app/edit-video/edit-video.html',
         controller: 'EditVideoCtrl',
         onEnter: ['$state', 'LocalService', function ($state, LocalService) {
@@ -117,7 +117,7 @@ angular.module('mewpipe', ['ngAnimate',
         }]
       })
       .state('skel.editUser', {
-        url: '/edit-user/:userId',
+        url: '/edit-user',
         templateUrl: 'app/edit-user/edit-user.html',
         controller: 'EditUserCtrl',
         onEnter: ['$state', 'LocalService', function ($state, LocalService) {

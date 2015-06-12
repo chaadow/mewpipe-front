@@ -21,32 +21,45 @@
 
     <div class="row">
       <div class="small-12">
-        <input type="email" placeholder="email*" ng-model="email" class="input-default"  ng-required="true">
+        <input type="email" name="email" placeholder="email*" ng-model="email" class="input-default"  ng-required="true">
+        <div role="alert">
+          <span class="error" ng-show="signupForm.email.$error.required" >Email is required</span>
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="small-12">
-        <input type="password" placeholder="password*" ng-model="password" class="input-default" ng-minlength="8" ng-required="true">
+        <input type="password" name="password" placeholder="password*" ng-model="password" class="input-default" ng-minlength="8" ng-required="true">
+        <div role="alert">
+          <span class="error" ng-show="signupForm.password.$error.minlength" >Password must be at least 8 characters</span>
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="small-12">
-        <input type="password" placeholder="repeat password*"  class="input-default" ng-minlength="6" ng-required="true">
+        <input type="password" ng-model="repeatPassword" placeholder="repeat password*"  class="input-default" ng-minlength="8" ng-required="true">
+        <div role="alert">
+          <span class="error" ng-show="repeatPassword !== password" >Password must be the same</span>
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="small-12">
-        <input type="text" placeholder="firstname*" ng-model="firstname" class="input-default" (>
+        <input type="text" name="firstname" placeholder="firstname*" ng-model="firstname" class="input-default" ng-required="true">
+        <span class="error" ng-show="signupForm.firstname.$error.required" >Firstname is required</span>
+
       </div>
     </div>
     <div class="row">
       <div class="small-12">
-        <input type="text" placeholder="lastname*" ng-model="lastname" class="input-default" ng-required="">
+        <input type="text" name="lastname" placeholder="lastname*" ng-model="lastname" class="input-default" ng-required="true">
+        <span class="error" ng-show="signupForm.lastname.$error.required" >Lastname is required</span>
+
       </div>
     </div>
     <div class="row">
       <div class="small-12">
-        <button class="button btn-attract radius"  type="submit">Register</button>
+        <button class="button btn-attract radius"  type="submit" ng-disabled="signupForm.$invalid">Register</button>
       </div>
     </div>
   </form>

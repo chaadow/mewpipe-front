@@ -299,6 +299,30 @@ h1,h2,h3,h4,h5,p,span,a {
   color: white !important;
 }
 
+.input-file-wrapper {
+  width: 149px;
+  height: 33px;
+  /* background: url(https://lh6.googleusercontent.com/-dqTIJRTqEAQ/UJaofTQm3hI/AAAAAAAABHo/w7ruR1SOIsA/s157/upload.png); */
+  background-color: orange;
+  color: white;
+  overflow: hidden;
+  border-radius: 0px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-bottom: 19px;
+  /* padding: 11px; */
+
+  input {
+    display: block !important;
+    width: 157px !important;
+    height: 57px !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+  }
+}
+
+
+
 .preview-upload {
   width: 100px;
 }
