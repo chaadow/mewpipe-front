@@ -136,6 +136,10 @@ angular.module('mewpipe', ['ngAnimate',
         templateUrl: 'app/error/404/error404.html',
         controller: 'Error404Ctrl'
       })
+      .state('skel.redirect', {
+        url: '/redirect/:userId/:userToken',
+        controller: 'RedirectCtrl'
+      })
       .state('homeOld', {
         url: '/homeold',
         templateUrl: 'app/main/main.html',
