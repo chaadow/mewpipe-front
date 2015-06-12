@@ -84,7 +84,7 @@ angular.module('mewpipe')
                 function () {
                   $state.go('skel.video', {videoId: data.id});
                 });
-           
+
             }
         })
           .error(function (err) {
