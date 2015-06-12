@@ -64,6 +64,12 @@ angular.module('mewpipe')
             if (data) {
               console.log('updata user: ', data);
               $scope.user = data.user;
+
+              swal({
+                title: "Your account is updated !",
+                type: "success"
+              });
+
             }
         });
       };

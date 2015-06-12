@@ -9,6 +9,8 @@ angular.module('mewpipe')
       $scope.shareVideo = false;
       var isLogged = LocalService.get('isLogged');
       $scope.apiUrl = CONFIG.api_url;
+      var userId = LocalService.get('user_id');
+      $scope.videoOwner = false;
 
 
       VideoService.getOne($scope.videoId).success(function (data) {
@@ -47,11 +49,11 @@ angular.module('mewpipe')
           id: video.id
         };
 
-        console.log(video.id);
-        console.log( $scope.apiUrl + video.user.avatar);
+        if (userId == video.user.id) {
+          $scope.videoOwner = true;
+        }
         $scope.slug = 'http://localhost:3000/#/video/' + video.slug;
 
-        console.log(CONFIG.api_url + video.poster);
 
       })
         .error(function (data, status, headers, config) {

@@ -75,6 +75,16 @@ angular.module('mewpipe')
         VideoService.update(toSend, $scope.videoId).success(function (data) {
             if (data) {
               console.log(data);
+
+              swal({
+                title: "Your video is updated !",
+                type: "success",
+                  showCancelButton: true,
+                  confirmButtonText: "Show my video" },
+                function () {
+                  $state.go('skel.video', {videoId: data.id});
+                });
+           
             }
         })
           .error(function (err) {
