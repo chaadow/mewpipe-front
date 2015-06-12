@@ -64,11 +64,15 @@
         <div ng-if="sidebarState == 'signup'"  ui-view="notConnected"></div>
         <div ng-if="sidebarState == 'login'" ui-view="notConnectedLogin"></div>
 
+
         <div class="text-center" ng-switch on="sidebarState">
-          <button ng-switch-when="signup" ng-click="goToSignup()">Login</button>
-          <button ng-switch-when="login" ng-click="goToLogin()">Signup</button>
+          <button class="button" ng-switch-when="signup" ng-click="goToSignup()">Login</button>
+          <button class="button" ng-switch-when="login" ng-click="goToLogin()">Signup</button>
         </div>
       </div>
+
+      <button  ng-click="connectGenomeSpace()" class="button secondary">Connect with GenomeSpace</button>
+      <button  ng-click="" class="button alert">Connect with Google</button>
     </div>
   </div>
 

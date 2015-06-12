@@ -29,7 +29,6 @@ angular.module('mewpipe', ['ngAnimate',
   .config(function ($stateProvider, $urlRouterProvider, $httpProvider, cfpLoadingBarProvider) {
 
     $httpProvider.interceptors.push('AuthInterceptor');
-    //$httpProvider.defaults.withCredentials = true;
 
 
 

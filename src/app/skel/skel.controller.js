@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mewpipe')
-  .controller('SkelCtrl', function ($scope, LocalService, VideoService, $state) {
+  .controller('SkelCtrl', function ($scope, LocalService, VideoService, $state, AuthService) {
 
     $scope.sidebarState = 'login';
     $scope.isLogged = LocalService.get('isLogged');
@@ -43,6 +43,21 @@ angular.module('mewpipe')
 
     $scope.goToSignup = function () {
       $scope.sidebarState = 'login';
+    };
+
+    $scope.connectGenomeSpace = function () {
+      var toSend = {
+        identity_url: 'https://identity.genomespace.org/identityServer/xrd.jsp'
+        };
+
+      AuthService.login(toSend).success(function (data) {
+        console.log('genome', data);
+      }).error(function (data, status, headers, config) {
+        console.log(data);
+        console.log(status);
+        console.log(headers);
+        console.log(config);
+      });
     };
 
 
