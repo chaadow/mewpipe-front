@@ -3,10 +3,11 @@
     <div class="profile-img">
       <span><img class="profile-avatar" ng-src="{{apiUrl}}{{user.avatar}}" alt="me" width="150" height="150"></span>
     </div>
+    <a ng-show="myPipe" class="button secondary" ui-sref="skel.editUser({userId: user.id})">Edit my profile</a>
   </div>
   <div class="small-12 medium-9 columns user-infos-pipe text-right small-text-center">
 
-    <span class="thin">Welcome on the</span>
+    <span class="thin">Welcome on</span>
     <h1 >
       <span ng-show="myPipe">My Pipe ! </span>
       <span ng-show="!myPipe">{{user.firstname}} {{user.lastname}}'s Pipe ! </span>
@@ -23,7 +24,7 @@
       <div class="small-6 columns text-left">
         <i class="fi-video"></i> {{nbVideos}}
       </div>
-      <a ng-show="myPipe" class="button secondary" ui-sref="skel.editUser({userId: user.id})">Edit my profile</a>
+
     </div>
   </div>
 </div>
