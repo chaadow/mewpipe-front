@@ -29,6 +29,14 @@
     </div>
     <div class="row">
       <div class="small-12">
+        <input type="text" name="username" placeholder="username*" ng-model="username" class="input-default" ng-minlength="3" ng-required="true">
+        <div role="alert">
+          <span class="error" ng-show="signupForm.username.$error.required" >Username is required</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12">
         <input type="password" name="password" placeholder="password*" ng-model="password" class="input-default" ng-minlength="8" ng-required="true">
         <div role="alert">
           <span class="error" ng-show="signupForm.password.$error.minlength" >Password must be at least 8 characters</span>
@@ -45,13 +53,13 @@
     </div>
     <div class="row">
       <div class="small-12">
-        <input type="text" name="firstname" placeholder="firstname*" ng-model="firstname" class="input-default" >
+        <input type="text" name="firstname" placeholder="firstname" ng-model="firstname" class="input-default" >
 
       </div>
     </div>
     <div class="row">
       <div class="small-12">
-        <input type="text" name="lastname" placeholder="lastname*" ng-model="lastname" class="input-default" >
+        <input type="text" name="lastname" placeholder="lastname" ng-model="lastname" class="input-default" >
       </div>
     </div>
     <div class="row">

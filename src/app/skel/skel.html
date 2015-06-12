@@ -28,7 +28,7 @@
               <span class="meter" style="width:{{mostViewed.pourcent}}%"></span>
             </div>
             <span class="number">{{mostViewed.view_count}}</span>
-            <p>{{mostViewed.user.firstname}} {{mostViewed.user.lastname}}</p>
+            <p ui-sref="skel.pipe({userId: mostViewed.user.id})">{{mostViewed.user.username}}</p>
             <h3>{{mostViewed.title}}</h3>
           </div>
         </div>
@@ -46,7 +46,7 @@
               <span class="meter" style="width:{{topRated.pourcent}}%"></span>
             </div>
             <span class="number">{{topRated.page_views}}</span>
-            <p>{{topRated.user.firstname}} {{topRated.user.lastname}}</p>
+            <p ui-sref="skel.pipe({userId: topRated.user.id})">{{topRated.user.username}}</p>
             <h3>{{topRated.title}}</h3>
           </div>
         </div>

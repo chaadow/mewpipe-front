@@ -24,7 +24,7 @@ angular.module('mewpipe')
           $scope.avatar = CONFIG.api_url + data.user.avatar;
           $scope.firstname = data.user.firstname;
           $scope.lastname = data.user.lastname;
-
+          $scope.username = data.user.username;
           $scope.nbVideos = data.user.videos.length;
           $scope.nbViews = 0;
 
