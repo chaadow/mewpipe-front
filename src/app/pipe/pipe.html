@@ -9,7 +9,7 @@
     <span class="thin">Welcome on the</span>
     <h1 >
       <span ng-show="myPipe">My Pipe ! </span>
-      <span ng-show="!myPipe">{{user.username}}'s Pipe ! </span>
+      <span ng-show="!myPipe">{{user.username | capitalize}}'s Pipe ! </span>
     </h1>
     <span class="thin">Here you can find all his videos uploaded</span>
 
@@ -35,8 +35,8 @@
         <img class="right"  ng-src="{{apiUrl}}{{video.thumb}}">
       </a>
       <div class="caption">
-        <h3>{{video.title}}</h3>
-        <p>{{video.description}}</p>
+        <h3>{{video.title | capitalize}}</h3>
+        <p>{{video.description | capitalize}}</p>
         <a class="GoToPlay" ui-sref="skel.video({videoId: video.id})">Play !</a>
       </div>
     </div>

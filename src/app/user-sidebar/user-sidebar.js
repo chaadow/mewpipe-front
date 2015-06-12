@@ -11,29 +11,43 @@ angular.module('mewpipe')
 
       $scope.showFastUploadForm = false;
 
+      var getOneUser = function () {
+        UserService.getOne($scope.userId, function (err, data) {
+          if (err) {
+            console.log('get user err:', err);
+          }
 
-      UserService.getOne($scope.userId, function (err, data) {
-        if (err) {
-          console.log('get user err:', err);
+          if (data) {
+            console.log('get user :', data);
+            $scope.user = data.user;
+
+            $scope.avatar = CONFIG.api_url + data.user.avatar;
+            $scope.firstname = data.user.firstname;
+            $scope.lastname = data.user.lastname;
+            $scope.username = data.user.username;
+            $scope.nbVideos = data.user.videos.length;
+            $scope.nbViews = 0;
+
+            _.forEach(data.user.videos, function (n, key) {
+              $scope.nbViews += data.user.videos[key].view_count;
+            });
+
+          }
+
+        });
+
+      };
+
+      getOneUser();
+
+    console.log($scope.$parent.isLogged);
+
+      $scope.$parent.$watch('isLogged', function (val) {
+        console.log(val);
+        if (val) {
+          console.log('tamere');
+          getOneUser();
         }
-
-        if (data) {
-          console.log('get user :', data);
-          $scope.user = data.user;
-
-          $scope.avatar = CONFIG.api_url + data.user.avatar;
-          $scope.firstname = data.user.firstname;
-          $scope.lastname = data.user.lastname;
-          $scope.username = data.user.username;
-          $scope.nbVideos = data.user.videos.length;
-          $scope.nbViews = 0;
-
-          _.forEach(data.user.videos, function (n, key) {
-            $scope.nbViews += data.user.videos[key].view_count;
-          });
-
-        }
-
       });
 
       $scope.toggleUploadForm = function () {

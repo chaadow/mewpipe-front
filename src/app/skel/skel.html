@@ -28,8 +28,8 @@
               <span class="meter" style="width:{{mostViewed.pourcent}}%"></span>
             </div>
             <span class="number">{{mostViewed.view_count}}</span>
-            <p ui-sref="skel.pipe({userId: mostViewed.user.id})">{{mostViewed.user.username}}</p>
-            <h3>{{mostViewed.title}}</h3>
+            <p class="pointer" ui-sref="skel.pipe({userId: mostViewed.user.id})">{{mostViewed.user.username | capitalize}}</p>
+            <h3>{{mostViewed.title | capitalize}}</h3>
           </div>
         </div>
       </div>
@@ -46,8 +46,8 @@
               <span class="meter" style="width:{{topRated.pourcent}}%"></span>
             </div>
             <span class="number">{{topRated.page_views}}</span>
-            <p ui-sref="skel.pipe({userId: topRated.user.id})">{{topRated.user.username}}</p>
-            <h3>{{topRated.title}}</h3>
+            <p class="pointer" ui-sref="skel.pipe({userId: topRated.user.id})">{{topRated.user.username | capitalize}}</p>
+            <h3>{{topRated.title | capitalize}}</h3>
           </div>
         </div>
       </div>
