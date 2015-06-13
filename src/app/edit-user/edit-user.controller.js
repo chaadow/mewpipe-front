@@ -82,7 +82,7 @@ angular.module('mewpipe')
       $scope.deleteUser = function () {
 
         swal({   title: "Are you sure?",
-            text: "You will not be able to recover you account!",
+            text: "You will not be able to recover your account!",
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
