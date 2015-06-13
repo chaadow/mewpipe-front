@@ -5,19 +5,23 @@ angular.module('mewpipe')
     function ($scope, $sce, LocalService, VideoService, FileReader, $state) {
       $scope.confidentiality = 'Public';
       var userId = LocalService.get('user_id');
-      $scope.uploadFormat = ['.3gp', '.3g2', '.3gp2', '.asf',
-                              '.mts', '.m2ts', '.avi', '.mod',
-                                '.dv', '.ts', '.vob', '.xesc', '.mp4',
-                                '.mpeg', '.mpg','.m2v', '.ismv', '.wmv', '.mov', '.qt'];
+      $scope.uploadFormat = ['3gp', '3g2', '3gp2', 'asf',
+                              'mts', 'm2ts', 'avi', 'mod',
+                                'dv', 'ts', 'vob', 'xesc', 'mp4',
+                                'mpeg', 'mpg','m2v', 'ismv', 'wmv', 'mov', 'qt'];
+      $scope.stringUploadFormat = $scope.uploadFormat.join(', ');
       $scope.uploadFilename = 'Choose a video';
       $scope.confidentiality = 'public';
       $scope.progressPercentage = 0;
       $scope.noTitle = false;
       $scope.noFile = false;
+      $scope.wrongFormat = false;
+      $scope.wrongSize = false;
+
+
 
       $scope.getFile = function () {
         $scope.progressVal = 0;
-        console.log('test');
         FileReader.readAsDataUrl($scope.file, $scope)
 
           .then(function(result) {
@@ -30,6 +34,22 @@ angular.module('mewpipe')
 
         return TagService.get(company.id, query).success(function (data) {});
       };*/
+
+
+      $scope.$watch('file', function (data) {
+        if (data) {
+         var type = data.type.split("/").pop();
+          console.log(type);
+          if ($scope.uploadFormat.indexOf(type) < 0 ) {
+            $scope.file = null;
+            $scope.wrongFormat = true;
+            console.log($scope.file);
+          }else if ($scope.file.size > 500000000) {
+            $scope.file = null;
+            $scope.wrongSize = true;
+          }
+        }
+      });
 
       var voidForm = function () {
         $scope.title = undefined;

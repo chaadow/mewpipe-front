@@ -19,6 +19,8 @@
                      ngf-max-size='500000000'
                      placeholder="Vidéo*">
               <div ng-show="noFile && !file" class="mewpipe-error">A video is required</div>
+              <div ng-show="wrongFormat" class="mewpipe-error">Only video with this formats are accepted: {{stringUploadFormat}}</div>
+              <div ng-show="wrongSize" class="mewpipe-error">Only video under 500 MB are accepted</div>
 
             </div>
             <div class="small-12 medium-5 columns">
