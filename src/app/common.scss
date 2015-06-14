@@ -41,12 +41,12 @@ h1,h2,h3,h4,h5,p,span,a {
 
 
 .userstats {
-  color: $lightGrey;
-  font-size: rem-calc(18);
+  color: $white;
+  font-size: rem-calc(22);
   margin-bottom: 2em;
 
   i {
-    font-size: rem-calc(20);
+    font-size: rem-calc(20) !important;
   }
 }
 
