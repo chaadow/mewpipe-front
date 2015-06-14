@@ -18,14 +18,15 @@
   <div class="large-2 columns full-height top-stats">
     <h2 >Most viewed</h2>
     <div class="row most-viewed">
-      <div class="large-12 small-12  video-item" ng-repeat="mostViewed in mostVieweds">
+      <div class="large-12 small-12  video-item" ng-repeat="mostViewed in mostVieweds | limitTo:3">
         <div class="th">
           <a ui-sref="skel.video({videoId: mostViewed.id})">
             <img class="most-viewed-thumb" ng-src="{{apiUrl}}{{mostViewed.thumb}}" alt="{{mostViewed.title}}">
           </a>
           <div class="caption">
+
             <div class="progress large-12 small-12">
-              <span class="meter" style="width:{{mostViewed.pourcent}}%"></span>
+              <span class="meter" ng-style="{'width': mostViewed.progress + '%'}"></span>
             </div>
             <span class="number">{{mostViewed.view_count}}</span>
             <p class="pointer" ui-sref="skel.pipe({userId: mostViewed.user.id})">{{mostViewed.user.username | capitalize}}</p>
@@ -36,14 +37,14 @@
     </div>
     <div class="row top-rated">
       <h2>Top Shared</h2>
-      <div class="large-12 small-12  video-item" ng-repeat="topRated in topRateds">
+      <div class="large-12 small-12  video-item" ng-repeat="topRated in topRateds | limitTo:3">
         <div class="th">
           <a ui-sref="skel.video({videoId: topRated.id})">
             <img class="" ng-src="{{apiUrl}}{{topRated.thumb}}" alt="{{topRated.title}}">
           </a>
           <div class="caption">
             <div class="progress large-12 small-12">
-              <span class="meter" style="width:{{topRated.pourcent}}%"></span>
+              <span class="meter" ng-style="{'width': topRated.progress + '%'}"></span>
             </div>
             <span class="number">{{topRated.page_views}}</span>
             <p class="pointer" ui-sref="skel.pipe({userId: topRated.user.id})">{{topRated.user.username | capitalize}}</p>

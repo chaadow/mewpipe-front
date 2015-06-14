@@ -17,13 +17,35 @@ angular.module('mewpipe')
         $scope.topRateds = data.videos;
       });
     }else {
-      VideoService.getMostViewed(3).success(function (data) {
-        console.log('mostviewed', data);
+      VideoService.getMostViewed().success(function (data) {
+
+        var total_count = 0;
+
+        _.forEach(data.videos, function (n, key) {
+          total_count += n.view_count;
+
+        });
+
+        _.forEach(data.videos, function (n, key) {
+          data.videos[key].progress = n.view_count / total_count * 100;
+        });
+
         $scope.mostVieweds = data.videos;
+
       });
 
       VideoService.getBestShared(3).success(function (data) {
-        console.log('mostshared ', data);
+        var total_count = 0;
+
+        _.forEach(data.videos, function (n, key) {
+          total_count += n.view_count;
+
+        });
+
+        _.forEach(data.videos, function (n, key) {
+          data.videos[key].progress = n.view_count / total_count * 100;
+        });
+
         $scope.topRateds = data.videos;
       });
     }

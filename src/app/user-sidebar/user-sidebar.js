@@ -99,12 +99,12 @@ angular.module('mewpipe')
       }
     });*/
 
-  var voidForm = function () {
-    $scope.title = undefined;
-    $scope.confidentiality = 'public';
-    $scope.file = undefined;
-    $scope.progressPercentage = 0;
-  };
+    var voidForm = function () {
+      $scope.title = undefined;
+      $scope.confidentiality = 'public';
+      $scope.file = undefined;
+      $scope.progressPercentage = 0;
+    };
 
       var progressBarCallback = function (data) {
         $scope.progressPercentage = data;
