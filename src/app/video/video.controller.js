@@ -13,6 +13,7 @@ angular.module('mewpipe')
       $scope.videoOwner = false;
 
 
+
       VideoService.getOne($scope.videoId).success(function (data) {
         console.log(data);
         var video = data.video;
@@ -64,7 +65,11 @@ angular.module('mewpipe')
       ;
 
       $scope.showSlug = function () {
-        $scope.shareVideo = true;
+        if (!$scope.shareVideo) {
+          $scope.shareVideo = true;
+        } else {
+          $scope.shareVideo = false;
+        }
       };
 
 

@@ -72,8 +72,8 @@
           });
       },
       //TODO
-      destroy: function() {
-
+      destroy: function(videoId) {
+        return $http.delete(CONFIG.api_url + 'videos/' + videoId);
       }
     };
   }

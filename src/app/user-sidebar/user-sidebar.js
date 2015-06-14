@@ -5,6 +5,7 @@ angular.module('mewpipe')
     '$state', 'UserService',
     function ($scope, FileReader, LocalService, VideoService, $state, UserService) {
     $scope.userId = LocalService.get('user_id');
+      $scope.progressPercentage = 0;
 
 
       $scope.confidentiality = 'public';
@@ -102,7 +103,12 @@ angular.module('mewpipe')
     $scope.title = undefined;
     $scope.confidentiality = 'public';
     $scope.file = undefined;
+    $scope.progressPercentage = 0;
   };
+
+      var progressBarCallback = function (data) {
+        $scope.progressPercentage = data;
+      };
 
 
     $scope.fastUploadVideo = function () {
@@ -133,7 +139,7 @@ angular.module('mewpipe')
               $state.go('skel.video', {videoId: data.id});
             });
         }
-      });
+      }, progressBarCallback());
 
     }
 

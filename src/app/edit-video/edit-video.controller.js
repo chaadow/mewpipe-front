@@ -57,6 +57,28 @@ angular.module('mewpipe')
 
       });
 
+      $scope.deleteVideo = function () {
+
+        swal({   title: "Are you sure?",
+            text: "You will not be able to recover your video!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, delete it!",
+            closeOnConfirm: false },
+          function () {
+
+            VideoService.destroy($scope.videoId).success(function () {
+              $state.go('skel.home');
+              swal("Deleted!", "Your video has been deleted.", "success");
+
+            });
+          });
+
+
+
+      }
+
 
       $scope.videoUpdate = function () {
 
@@ -91,6 +113,8 @@ angular.module('mewpipe')
               console.log(err);
 
           });
+
+
 
 
       }
